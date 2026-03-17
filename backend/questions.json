@@ -1,0 +1,27 @@
+[
+  {
+    "id": "q1",
+    "front": "What is the capital of France?",
+    "back": "Paris"
+  },
+  {
+    "id": "q2",
+    "front": "What does HTTP stand for?",
+    "back": "HyperText Transfer Protocol"
+  },
+  {
+    "id": "q3",
+    "front": "What is the time complexity of binary search?",
+    "back": "O(log n)"
+  },
+  {
+    "id": "q4",
+    "front": "What keyword is used to define a function in Python?",
+    "back": "def"
+  },
+  {
+    "id": "q5",
+    "front": "What does FSRS stand for?",
+    "back": "Free Spaced Repetition Scheduler"
+  }
+]
