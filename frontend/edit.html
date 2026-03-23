@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Questions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-logo">⚡ FSRS Learner</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Quiz</a>
+            <a href="edit.html" class="nav-link active">Manage Questions</a>
+        </div>
+    </nav>
+
+    <main class="container edit-container">
+        <div class="edit-layout">
+            <div class="card" style="border-radius: 12px; padding: 1.5rem; text-align: left;">
+                <div class="action-bar">
+                    <h3 style="margin: 0;">Flashcards</h3>
+                    <button class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem;" onclick="openNewForm()">+ New</button>
+                </div>
+                <div id="questions-list" class="questions-list">
+                    <div class="loader" style="width:30px; height:30px; border-width:2px; margin-top:2rem;"></div>
+                </div>
+            </div>
+            
+            <div class="card edit-panel">
+                <h2 id="form-title" style="margin-bottom: 2rem; color: var(--primary);">Add New Card</h2>
+                <input type="hidden" id="q-id">
+                
+                <div class="form-group">
+                    <label>Question (Front)</label>
+                    <textarea id="q-front" class="form-control" rows="4" placeholder="Enter your question here..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Answer (Back)</label>
+                    <textarea id="q-back" class="form-control" rows="4" placeholder="Enter the correct answer here..."></textarea>
+                </div>
+                
+                <button class="btn btn-primary" style="width: 100%;" onclick="saveQuestion()">Save Flashcard</button>
+            </div>
+        </div>
+    </main>
+    
+    <div id="toast" class="toast">Saved Successfully!</div>
+    <script src="edit.js"></script>
+</body>
+</html>

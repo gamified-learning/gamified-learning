@@ -1,8 +1,10 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from datetime import datetime, timezone, timedelta
-from scheduler import load_questions, get_due_cards, review_card, RATING_MAP
+from scheduler import load_questions, get_due_cards, review_card, RATING_MAP, save_question
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route("/get_questions", methods=["GET"])
@@ -31,6 +33,29 @@ def get_questions():
     due = get_due_cards(now)
     return jsonify({"due_count": len(due), "questions": due})
 
+@app.route("/all_questions", methods=["GET"])
+def get_all_questions():
+    questions = load_questions()
+    return jsonify({"questions": questions})
+
+@app.route("/save_question", methods=["POST"])
+def api_save_question():
+    data = request.get_json(silent=True)
+    if not data:
+        return jsonify({"error": "Request body must be JSON"}), 400
+    
+    qid = data.get("id")
+    front = data.get("front")
+    back = data.get("back")
+    
+    if not front or not back:
+        return jsonify({"error": "Missing front or back"}), 400
+        
+    updated = save_question(qid, front, back)
+    if not updated:
+        return jsonify({"error": f"Question id '{qid}' not found"}), 404
+        
+    return jsonify(updated)
 
 @app.route("/review", methods=["POST"])
 def review():

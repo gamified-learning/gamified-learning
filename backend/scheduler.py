@@ -24,6 +24,27 @@ def load_questions() -> list[dict]:
     with open(QUESTIONS_FILE, "r") as f:
         return json.load(f)
 
+def save_questions(questions: list[dict]) -> None:
+    with open(QUESTIONS_FILE, "w") as f:
+        json.dump(questions, f, indent=2)
+
+def save_question(qid: int | None, front: str, back: str) -> dict | None:
+    questions = load_questions()
+    if qid is None:
+        new_id = max((q["id"] for q in questions), default=0) + 1
+        new_q = {"id": new_id, "front": front, "back": back}
+        questions.append(new_q)
+        save_questions(questions)
+        return new_q
+    else:
+        for q in questions:
+            if q["id"] == qid:
+                q["front"] = front
+                q["back"] = back
+                save_questions(questions)
+                return q
+        return None
+
 
 def load_cards() -> dict[int, dict]:
     if not os.path.exists(CARDS_FILE):

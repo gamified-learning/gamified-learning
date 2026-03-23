@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamified Learning Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-logo">⚡ FSRS Learner</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link active">Quiz</a>
+            <a href="edit.html" class="nav-link">Manage Questions</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="dynamic-content" id="quiz-container">
+            <!-- Content injected by JS -->
+            <div class="loading-state card">
+                <div class="loader"></div>
+                <h2>Loading your flashcards...</h2>
+            </div>
+        </div>
+    </main>
+    <script src="quiz.js"></script>
+</body>
+</html>
