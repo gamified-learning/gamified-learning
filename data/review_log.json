@@ -1,0 +1,20 @@
+[
+  {
+    "card_id": 1774285419501,
+    "rating": 2,
+    "review_datetime": "2026-03-23T17:03:39.500634+00:00",
+    "review_duration": null
+  },
+  {
+    "card_id": 1774285706058,
+    "rating": 2,
+    "review_datetime": "2026-03-23T17:08:26.058187+00:00",
+    "review_duration": null
+  },
+  {
+    "card_id": 1774285710101,
+    "rating": 3,
+    "review_datetime": "2026-03-23T17:08:30.100890+00:00",
+    "review_duration": null
+  }
+]

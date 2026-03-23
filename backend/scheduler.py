@@ -1,4 +1,4 @@
-from fsrs import Scheduler, Card, Rating
+from fsrs import Scheduler, Card, Rating, ReviewLog
 from datetime import datetime
 import json
 import os
@@ -6,6 +6,7 @@ import os
 DATA_DIR = "data"
 QUESTIONS_FILE = os.path.join(DATA_DIR, "questions.json")
 CARDS_FILE     = os.path.join(DATA_DIR, "cards.json")
+REVIEW_LOG_FILE = os.path.join(DATA_DIR, "review_log.json")
 
 _scheduler = Scheduler()
 
@@ -65,31 +66,11 @@ def deserialize_card(data: dict | None) -> Card:
     if data is None:
         return Card()
 
-    card = Card()
-    card.due            = datetime.fromisoformat(data["due"])
-    card.stability      = data["stability"]
-    card.difficulty     = data["difficulty"]
-    card.elapsed_days   = data["elapsed_days"]
-    card.scheduled_days = data["scheduled_days"]
-    card.state          = data["state"]
-    card.last_review    = (
-        datetime.fromisoformat(data["last_review"])
-        if data.get("last_review") else None
-    )
-    return card
+    return Card.from_dict(data)
 
 
 def serialize_card(card: Card) -> dict:
-    return {
-        "due":            card.due.isoformat(),
-        "stability":      card.stability,
-        "difficulty":     card.difficulty,
-        "elapsed_days":   card.elapsed_days,
-        "scheduled_days": card.scheduled_days,
-        "state":          card.state,
-        "last_review":    card.last_review.isoformat() if card.last_review else None,
-    }
-
+    return card.to_dict()
 
 def get_due_cards(now: datetime) -> list[dict]:
     """Merge question content with card metadata for every question that is due."""
@@ -119,15 +100,34 @@ def review_card(qid: int, rating_val: int, now: datetime) -> dict:
     card   = deserialize_card(cards.get(qid))
     rating = RATING_MAP[rating_val]
 
-    card, _ = _scheduler.review_card(card, rating, now)
+    card, review_log = _scheduler.review_card(card, rating, now)
 
     cards[qid] = serialize_card(card)
     save_cards(cards)
+    
+    save_review_log(review_log)
 
     return {
         "next_due":       card.due.isoformat(),
-        "scheduled_days": card.scheduled_days,
         "stability":      round(card.stability, 4),
         "difficulty":     round(card.difficulty, 4),
         "state":          card.state,
     }
+
+
+def load_review_log():
+    if not os.path.exists(REVIEW_LOG_FILE):
+        return []
+
+    with open(REVIEW_LOG_FILE, "r") as f:
+        return json.load(f)
+
+
+def save_review_log(review_log: ReviewLog):
+    print("saved log")
+
+    review_logs = load_review_log()
+    review_logs.append(review_log.to_dict())
+    with open(REVIEW_LOG_FILE, "w") as f:
+        json.dump(review_logs, f, indent=2, default=str)
+

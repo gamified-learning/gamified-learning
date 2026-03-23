@@ -1,11 +1,15 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 from datetime import datetime, timezone, timedelta
-from scheduler import load_questions, get_due_cards, review_card, RATING_MAP, save_question
+from backend.scheduler import *
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="frontend", static_folder="frontend", static_url_path="")
 CORS(app)
 
+
+@app.route("/")
+def index():
+   return render_template("index.html")
 
 @app.route("/get_questions", methods=["GET"])
 def get_questions():
@@ -75,7 +79,6 @@ def review():
         "id": 1,
         "rating": 3,
         "next_due": "2025-01-04T00:00:00+00:00",
-        "scheduled_days": 3,
         "stability": 4.0729,
         "difficulty": 5.0,
         "state": 2,
@@ -104,6 +107,10 @@ def review():
 
     return jsonify({"id": qid, "rating": rating_val, **result})
 
+
+@app.route("/get_review_log", methods = ["GET"])
+def get_review_log():
+    return load_review_log()
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
