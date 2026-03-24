@@ -8,13 +8,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="nav-bar">
-        <div class="nav-logo">⚡ FSRS Learner</div>
-        <div class="nav-links">
-            <a href="index.html" class="nav-link">Quiz</a>
-            <a href="edit.html" class="nav-link active">Manage Questions</a>
-        </div>
-    </nav>
+    <header>
+        <nav class="nav-bar" aria-label="Main navigation">
+            <a href="dashboard.html" class="nav-logo" aria-label="FSRS Learner home">⚡Gamified Learning</a>
+            <ul class="nav-links" role="list">
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="index.html" class="nav-link">Quiz</a></li>
+                <li><a href="upload.html" class="nav-link">Upload Content</a></li>
+                <li><a href="edit.html" class="nav-link active" aria-current="page">Manage</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main class="container edit-container">
         <div class="edit-layout">

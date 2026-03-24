@@ -9,7 +9,33 @@ CORS(app)
 
 @app.route("/")
 def index():
-   return render_template("index.html")
+   return render_template("dashboard.html")
+
+@app.route("/stats", methods=["GET"])
+def get_stats():
+    questions = load_questions()
+    now = datetime.now(timezone.utc) + timedelta(days=1)
+    
+    due_count = len(get_due_cards(now))
+    learning_count = sum(1 for q in questions if q.get("state") in [0, 1, 3])
+    total_count = len(questions)
+    
+    return jsonify({
+        "due_count": due_count,
+        "learning_count": learning_count,
+        "total_count": total_count
+    })
+
+@app.route("/upload_content", methods=["POST"])
+def upload_content():
+    # Stub for future AI processing
+    text = request.form.get("text", "")
+    file = request.files.get("file")
+    
+    # In the future, we will extract Q&A from `text` or `file.read()` using an AI model.
+    # For now, we will just return a success message.
+    
+    return jsonify({"success": True, "generated": 0}), 200
 
 @app.route("/get_questions", methods=["GET"])
 def get_questions():

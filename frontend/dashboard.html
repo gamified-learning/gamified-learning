@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamified Learning Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="nav-bar" aria-label="Main navigation">
+            <a href="dashboard.html" class="nav-logo" aria-label="FSRS Learner home">⚡Gamified Learning</a>
+            <ul class="nav-links" role="list">
+                <li><a href="dashboard.html" class="nav-link active" aria-current="page">Dashboard</a></li>
+                <li><a href="index.html" class="nav-link">Quiz</a></li>
+                <li><a href="upload.html" class="nav-link">Upload Content</a></li>
+                <li><a href="edit.html" class="nav-link">Manage</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="dashboard-header" aria-label="Dashboard Welcome">
+            <h1 class="page-title">Welcome Back! 👋</h1>
+            <p class="page-subtitle">Here is your learning progress for today.</p>
+        </section>
+
+        <section class="stats-grid" aria-label="Your Statistics">
+            <div class="stat-card">
+                <div class="stat-icon due-icon">🎯</div>
+                <div class="stat-content">
+                    <h3 class="stat-value" id="stat-due">0</h3>
+                    <p class="stat-label">Due Today</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon learning-icon">🧠</div>
+                <div class="stat-content">
+                    <h3 class="stat-value" id="stat-learning">0</h3>
+                    <p class="stat-label">Learning</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon total-icon">📚</div>
+                <div class="stat-content">
+                    <h3 class="stat-value" id="stat-total">0</h3>
+                    <p class="stat-label">Total Flashcards</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="quick-actions" aria-label="Quick Actions">
+            <h2 class="section-title">Quick Actions</h2>
+            <div class="actions-grid">
+                <a href="index.html" class="action-card primary-action">
+                    <div class="action-icon">▶️</div>
+                    <div class="action-text">
+                        <h3>Start Quiz</h3>
+                        <p>Review your due flashcards now.</p>
+                    </div>
+                </a>
+
+                <a href="upload.html" class="action-card secondary-action">
+                    <div class="action-icon">➕</div>
+                    <div class="action-text">
+                        <h3>Upload Content</h3>
+                        <p>Generate new flashcards from text or files.</p>
+                    </div>
+                </a>
+
+                <a href="edit.html" class="action-card secondary-action">
+                    <div class="action-icon">⚙️</div>
+                    <div class="action-text">
+                        <h3>Manage Questions</h3>
+                        <p>Edit or delete existing flashcards.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
