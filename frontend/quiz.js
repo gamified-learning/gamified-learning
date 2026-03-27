@@ -1,4 +1,4 @@
-const API_BASE = 'http://127.0.0.1:5000';
+const API_BASE = 'http://127.0.0.1:5000/api';
 let dueQuestions = [];
 let currentIndex = 0;
 let answerRevealed = false;
