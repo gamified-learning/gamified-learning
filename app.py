@@ -123,5 +123,33 @@ def get_streak():
     return streak()
 
 
+@app.route("/api/stats", methods = ["GET"])
+def get_stats():
+    questions = load_questions()
+    now = datetime.now(timezone.utc) + timedelta(days=1)
+
+    due_count = len(get_due_cards(now))
+    learning_count = sum(1 for q in questions if q.get("state") in [0, 1, 3])
+    total_count = len(questions)
+
+    return jsonify({
+        "due_count": due_count,
+        "learning_count": learning_count,
+        "total_count": total_count
+    })
+
+
+@app.route("/upload_content", methods=["POST"])
+def upload_content():
+    # Stub for future AI processing
+    text = request.form.get("text", "")
+    file = request.files.get("file")
+    
+    # In the future, we will extract Q&A from `text` or `file.read()` using an AI model.
+    # For now, we will just return a success message.
+    
+    return jsonify({"success": True, "generated": 0}), 200
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
