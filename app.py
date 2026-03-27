@@ -11,7 +11,7 @@ CORS(app)
 def index():
    return render_template("index.html")
 
-@app.route("/get_questions", methods=["GET"])
+@app.route("/api/get_questions", methods=["GET"])
 def get_questions():
     """
     GET /get_questions
@@ -37,12 +37,12 @@ def get_questions():
     due = get_due_cards(now)
     return jsonify({"due_count": len(due), "questions": due})
 
-@app.route("/all_questions", methods=["GET"])
+@app.route("/api/all_questions", methods=["GET"])
 def get_all_questions():
     questions = load_questions()
     return jsonify({"questions": questions})
 
-@app.route("/save_question", methods=["POST"])
+@app.route("/api/save_question", methods=["POST"])
 def api_save_question():
     data = request.get_json(silent=True)
     if not data:
@@ -61,7 +61,7 @@ def api_save_question():
         
     return jsonify(updated)
 
-@app.route("/review", methods=["POST"])
+@app.route("/api/review", methods=["POST"])
 def review():
     """
     POST /review
@@ -108,9 +108,20 @@ def review():
     return jsonify({"id": qid, "rating": rating_val, **result})
 
 
-@app.route("/get_review_log", methods = ["GET"])
+@app.route("/api/get_review_log", methods = ["GET"])
 def get_review_log():
     return load_review_log()
+
+
+@app.route("/api/heatmap", methods = ["GET"])
+def get_heatmap():
+    return jsonify(heatmap())
+
+
+@app.route("/api/streak", methods = ["GET"])
+def get_streak():
+    return streak()
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
