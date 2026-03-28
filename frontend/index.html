@@ -3,62 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamified Learning Quiz</title>
+    <title>Gamified Learning – Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Dashboard-specific styles */
+        .dashboard-container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .dashboard-hero {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .dashboard-hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+
+        .dashboard-hero p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .dashboard-hero h1 { font-size: 1.6rem; }
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+        }
+
+        .stat-icon {
+            font-size: 1.6rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.1;
+        }
+
+        .stat-value.due { color: var(--primary); }
+        .stat-value.streak { color: var(--warning); }
+        .stat-value.total { color: var(--success); }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            color: white;
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+        }
+
+        .cta-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-section p {
+            opacity: 0.85;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+            font-weight: 700;
+            padding: 0.85rem 2.5rem;
+            border-radius: 8px;
+            border: none;
+            font-size: 1.05rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.15s, box-shadow 0.15s;
+            cursor: pointer;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .skeleton {
+            background: linear-gradient(90deg, #e2e8f0 25%, #f1f5f9 50%, #e2e8f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 6px;
+            height: 2.2rem;
+            width: 60%;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .cta-due {
+            font-weight: 700;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav class="nav-bar" aria-label="Main navigation">
-            <a href="index.html" class="nav-logo" aria-label="FSRS Learner home">⚡Gamified Learning</a>
+            <a href="index.html" class="nav-logo" aria-label="Gamified Learning home">⚡Gamified Learning</a>
             <ul class="nav-links" role="list">
-                <li><a href="index.html" class="nav-link active" aria-current="page">Quiz</a></li>
-                <li><a href="edit.html" class="nav-link">Manage Questions</a></li>
+                <li><a href="index.html" class="nav-link active" aria-current="page">Dashboard</a></li>
+                <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+                <li><a href="upload.html" class="nav-link">Upload</a></li>
+                <li><a href="edit.html" class="nav-link">Manage</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="container">
-        <section class="dynamic-content" id="quiz-container" aria-label="Quiz">
+    <main class="dashboard-container">
+        <section class="dashboard-hero">
+            <h1>Welcome back! 👋</h1>
+            <p>Here's your learning progress at a glance.</p>
+        </section>
 
-            <article class="card" aria-label="Flashcard">
-                <header class="card-header">
-                    <span class="status-badge">Due</span>
-                    <p class="card-progress" aria-label="Progress">Question 1 of 10</p>
-                </header>
-
-                <section class="question-front" aria-label="Question">
-                    What is the capital of France?
-                </section>
-
-                <section class="question-back" aria-label="Answer" hidden>
-                    Paris
-                </section>
-            </article>
-
-            <button class="btn btn-secondary" onclick="showAnswer()">Show Answer</button>
-
-            <section class="rating-controls" aria-label="Rate your recall" hidden>
-                <h2 class="rating-label">How well did you remember?</h2>
-                <div class="rating-buttons" role="group" aria-label="FSRS rating buttons">
-                    <button class="rating-btn rating-again" onclick="rateCard(1)" aria-label="Again – complete blackout">
-                        <span class="rating-name">Again</span>
-                    </button>
-                    <button class="rating-btn rating-hard" onclick="rateCard(2)" aria-label="Hard – correct but very difficult">
-                        <span class="rating-name">Hard</span>
-                    </button>
-                    <button class="rating-btn rating-good" onclick="rateCard(3)" aria-label="Good – correct after hesitation">
-                        <span class="rating-name">Good</span>
-                    </button>
-                    <button class="rating-btn rating-easy" onclick="rateCard(4)" aria-label="Easy – perfect response">
-                        <span class="rating-name">Easy</span>
-                    </button>
+        <section class="stats-grid" aria-label="Learning statistics">
+            <div class="stat-card">
+                <div class="stat-icon">📅</div>
+                <div class="stat-label">Due Today</div>
+                <div class="stat-value due" id="stat-due">
+                    <div class="skeleton"></div>
                 </div>
-            </section>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📚</div>
+                <div class="stat-label">Total Cards</div>
+                <div class="stat-value total" id="stat-total">
+                    <div class="skeleton"></div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔥</div>
+                <div class="stat-label">Day Streak</div>
+                <div class="stat-value streak" id="stat-streak">
+                    <div class="skeleton"></div>
+                </div>
+            </div>
+        </section>
 
+        <section class="cta-section" aria-label="Start quiz">
+            <h2>Ready to review?</h2>
+            <p>You have <span class="cta-due" id="cta-due-count">...</span> cards waiting for you today.</p>
+            <a href="quiz.html" class="btn-white" id="start-quiz-btn">Start Quiz →</a>
         </section>
     </main>
 
-    <script src="quiz.js"></script>
+    <script>
+        const API_BASE = 'http://127.0.0.1:5000/api';
+
+        async function loadStats() {
+            try {
+                const [statsRes, streakRes] = await Promise.all([
+                    fetch(`${API_BASE}/stats`),
+                    fetch(`${API_BASE}/streak`)
+                ]);
+
+                const stats = await statsRes.json();
+                const streakData = await streakRes.json();
+
+                document.getElementById('stat-due').textContent    = stats.due_count ?? '—';
+                document.getElementById('stat-total').textContent  = stats.total_count ?? '—';
+                document.getElementById('stat-streak').textContent = streakData.streak ?? streakData.current_streak ?? '—';
+
+                const due = stats.due_count ?? 0;
+                document.getElementById('cta-due-count').textContent =
+                    due === 0 ? 'no' : due;
+
+                if (due === 0) {
+                    document.getElementById('start-quiz-btn').textContent = 'Browse All Cards →';
+                }
+            } catch (err) {
+                console.error('Failed to load stats:', err);
+                document.getElementById('stat-due').textContent    = '—';
+                document.getElementById('stat-total').textContent  = '—';
+                document.getElementById('stat-streak').textContent = '—';
+                document.getElementById('cta-due-count').textContent = 'some';
+            }
+        }
+
+        loadStats();
+    </script>
 </body>
 </html>
