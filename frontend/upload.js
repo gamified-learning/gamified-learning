@@ -1,4 +1,4 @@
-const API_BASE = 'http://127.0.0.1:5000';
+const API_BASE = 'http://127.0.0.1:5000/api';
 
 // --- Drag-and-drop logic ---
 const dropZone = document.getElementById('drop-zone');
