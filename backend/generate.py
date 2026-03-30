@@ -1,4 +1,2 @@
-
-
 def summary(content: str):
-
+    
