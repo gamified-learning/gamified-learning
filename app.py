@@ -4,6 +4,7 @@ from datetime import datetime, timezone, timedelta
 from backend.scheduler import *
 import backend.generate as generate
 import requests
+import backend.stats as stats
 
 app = Flask(__name__, template_folder="frontend", static_folder="frontend", static_url_path="")
 CORS(app)
@@ -128,8 +129,8 @@ def get_stats():
         "due_count": due_count,
         "learning_count": learning_count,
         "total_count": total_count,
-        "heatmap": heatmap(),
-        "streak": streak()
+        "heatmap": stats.heatmap(),
+        "streak": stats.streak()
     })
 
 
@@ -138,7 +139,8 @@ def upload_content():
     text      = request.form.get("text", "")
     file      = request.files.get("file")
     provider  = "openrouter"
-    api_key   = "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"
+    with open("api-key") as f:
+        api_key   = f.read().strip()
 
     if not api_key:
         return jsonify({"success": False, "error": "api_key is required"}), 400
@@ -151,7 +153,7 @@ def upload_content():
             questions = generate.generate_questions_openrouter(
                 prompt=prompt,
                 api_key=api_key,
-                model=request.form.get("model", "meta-llama/llama-3.1-8b-instruct:free"),
+                model=request.form.get("model", "openrouter/free"),
             )
         elif provider == "openai":
             questions = generate.generate_questions_openai(
