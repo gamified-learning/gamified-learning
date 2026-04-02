@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 from datetime import datetime, timezone, timedelta
 from backend.scheduler import *
+from backend.stats import heatmap, streak
 
 app = Flask(__name__, template_folder="frontend", static_folder="frontend", static_url_path="")
 CORS(app)
@@ -120,7 +121,7 @@ def get_heatmap():
 
 @app.route("/api/streak", methods = ["GET"])
 def get_streak():
-    return streak()
+    return jsonify(streak())
 
 
 @app.route("/api/stats", methods = ["GET"])

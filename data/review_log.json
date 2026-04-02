@@ -22,5 +22,17 @@
     "rating": 3,
     "review_datetime": "2026-03-28T15:13:02.316033+00:00",
     "review_duration": null
+  },
+  {
+    "card_id": 1774710782316,
+    "rating": 2,
+    "review_datetime": "2026-03-28T16:45:46.938668+00:00",
+    "review_duration": null
+  },
+  {
+    "card_id": 1774710782316,
+    "rating": 1,
+    "review_datetime": "2026-03-28T16:45:47.430395+00:00",
+    "review_duration": null
   }
 ]

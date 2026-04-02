@@ -1,4 +1,4 @@
-from scheduler import load_review_log
+from backend.scheduler import load_review_log
 import datetime
 from collections import defaultdict
 
@@ -7,17 +7,18 @@ def heatmap():
     
     days = defaultdict(int)
     for r in review_log:
-       date = datetime.fromisoformat(r["review_datetime"]).date()
-       days[str(date)] += 1
+        date = datetime.datetime.fromisoformat(r["review_datetime"]).date()
+        days[str(date)] += 1
 
-    return days
+    return dict(days)
 
 def streak():
     freq = heatmap()
-    date = datetime.now().date()
-    while (freq[date] > 0):
-        date -= datetime.timedelta(days=1).date()
+    today = datetime.date.today()
+    date = today
+    while freq.get(str(date), 0) > 0:
+        date -= datetime.timedelta(days=1)
 
-    return (datetime.now() - date).days
-    
+    current_streak = (today - date).days
+    return {"streak": current_streak}
 
