@@ -33,5 +33,30 @@
     "id": 7,
     "front": "what is the capital of india",
     "back": "Delhi"
+  },
+  {
+    "id": 8,
+    "front": "What is a DBMS and what are its primary functions?",
+    "back": "A DBMS is software that allows users to create, store, retrieve, and manage data efficiently."
+  },
+  {
+    "id": 9,
+    "front": "What are the main problems with file systems that DBMS solves?",
+    "back": "Data redundancy, inconsistency, difficulty in accessing data, data isolation, integrity issues, atomicity problems, concurrent access issues, and security problems."
+  },
+  {
+    "id": 10,
+    "front": "What are the three levels of data abstraction in a DBMS?",
+    "back": "Physical, logical, and view levels."
+  },
+  {
+    "id": 11,
+    "front": "Differentiate between schema and instance in a database.",
+    "back": "Schema is the logical structure of the database (e.g., table definitions), while instance refers to the actual data stored at a given time."
+  },
+  {
+    "id": 12,
+    "front": "What are the two types of data independence?",
+    "back": "Physical data independence and logical data independence."
   }
 ]

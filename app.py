@@ -2,7 +2,9 @@ from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 from datetime import datetime, timezone, timedelta
 from backend.scheduler import *
-from backend.stats import heatmap, streak
+import backend.generate as generate
+import requests
+import backend.stats as stats
 
 app = Flask(__name__, template_folder="frontend", static_folder="frontend", static_url_path="")
 CORS(app)
@@ -114,16 +116,6 @@ def get_review_log():
     return load_review_log()
 
 
-@app.route("/api/heatmap", methods = ["GET"])
-def get_heatmap():
-    return jsonify(heatmap())
-
-
-@app.route("/api/streak", methods = ["GET"])
-def get_streak():
-    return jsonify(streak())
-
-
 @app.route("/api/stats", methods = ["GET"])
 def get_stats():
     questions = load_questions()
@@ -136,21 +128,57 @@ def get_stats():
     return jsonify({
         "due_count": due_count,
         "learning_count": learning_count,
-        "total_count": total_count
+        "total_count": total_count,
+        "heatmap": stats.heatmap(),
+        "streak": stats.streak()
     })
 
 
-@app.route("/upload_content", methods=["POST"])
+@app.route("/api/upload_content", methods=["POST"])
 def upload_content():
-    # Stub for future AI processing
-    text = request.form.get("text", "")
-    file = request.files.get("file")
-    
-    # In the future, we will extract Q&A from `text` or `file.read()` using an AI model.
-    # For now, we will just return a success message.
-    
-    return jsonify({"success": True, "generated": 0}), 200
+    text      = request.form.get("text", "")
+    file      = request.files.get("file")
+    provider  = "openrouter"
+    with open("api-key") as f:
+        api_key   = f.read().strip()
 
+    if not api_key:
+        return jsonify({"success": False, "error": "api_key is required"}), 400
+
+    file_text = generate.extract_file_text(file)
+    prompt    = generate.build_prompt(text, file_text)
+
+    try:
+        if provider == "openrouter":
+            questions = generate.generate_questions_openrouter(
+                prompt=prompt,
+                api_key=api_key,
+                model=request.form.get("model", "openrouter/free"),
+            )
+        elif provider == "openai":
+            questions = generate.generate_questions_openai(
+                prompt=prompt,
+                api_key=api_key,
+                model=request.form.get("model", "gpt-4o-mini"),
+            )
+        else:
+            return jsonify({"success": False, "error": "Invalid provider"})
+    except requests.HTTPError as e:
+        print(f"OpenRouter error body: {e.response.text}")  
+        return jsonify({"success": False, "error": str(e)}), 502
+    except (json.JSONDecodeError, KeyError) as e:
+        return jsonify({"success": False, "error": f"Failed to parse model response: {e}"}), 500
+
+    saved = []
+    for q in questions:
+        front = q.get("question", "")
+        back  = q.get("answer", "")
+        if front and back:
+            saved_q = save_question(None, front, back)
+            if saved_q:
+                saved.append(saved_q)
+
+    return jsonify({"success": True, "generated": len(saved), "questions": saved}), 200
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
