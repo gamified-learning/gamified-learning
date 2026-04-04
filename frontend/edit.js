@@ -11,6 +11,13 @@ async function fetchAllQuestions() {
         const data = await response.json();
         allQuestions = data.questions || [];
         renderList();
+        
+        // Auto-open if query param exists
+        const urlParams = new URLSearchParams(window.location.search);
+        const editId = urlParams.get('id');
+        if (editId) {
+            editQuestion(parseInt(editId, 10));
+        }
     } catch (error) {
         console.error("Error fetching all questions:", error);
         document.getElementById('questions-list').innerHTML = `

@@ -61,6 +61,12 @@ function showAnswer() {
     answerRevealed = true;
 }
 
+function editCurrentQuestion() {
+    if (dueQuestions.length === 0 || currentIndex >= dueQuestions.length) return;
+    const q = dueQuestions[currentIndex];
+    window.location.href = `edit.html?id=${q.id}`;
+}
+
 async function rateCard(rating) {
     if (!answerRevealed) return;
 

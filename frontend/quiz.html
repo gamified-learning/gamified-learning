@@ -24,9 +24,12 @@
         <section class="dynamic-content" id="quiz-container" aria-label="Quiz">
 
             <article class="card" aria-label="Flashcard">
-                <header class="card-header">
-                    <span class="status-badge">Due</span>
-                    <p class="card-progress" aria-label="Progress">Question 1 of 10</p>
+                <header class="card-header" style="display: flex; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span class="status-badge">Due</span>
+                        <p class="card-progress" aria-label="Progress" style="margin: 0;">Question 1 of 10</p>
+                    </div>
+                    <button class="btn" style="padding: 0.3rem 0.6rem; font-size: 0.8rem; background: var(--surface-2); border: 1px solid var(--border-color); border-radius: 6px; cursor: pointer;" onclick="editCurrentQuestion()">✏️ Edit</button>
                 </header>
 
                 <section class="question-front" aria-label="Question">
