@@ -18,22 +18,49 @@ RATING_MAP = {
 }
 
 
+def _clean_text(value: object, default: str) -> str:
+    if isinstance(value, str):
+        value = value.strip()
+        if value:
+            return value
+    return default
+
+
+def normalize_question(question: dict) -> dict:
+    normalized = dict(question)
+    normalized["subject"] = _clean_text(normalized.get("subject"), "General")
+    normalized["chapter"] = _clean_text(normalized.get("chapter"), "General")
+    return normalized
+
+
 def load_questions() -> list[dict]:
     if not os.path.exists(QUESTIONS_FILE):
         print("File not found")
         return []
     with open(QUESTIONS_FILE, "r") as f:
-        return json.load(f)
+        return [normalize_question(question) for question in json.load(f)]
 
 def save_questions(questions: list[dict]) -> None:
     with open(QUESTIONS_FILE, "w") as f:
-        json.dump(questions, f, indent=2)
+        json.dump([normalize_question(question) for question in questions], f, indent=2)
 
-def save_question(qid: int | None, front: str, back: str) -> dict | None:
+def save_question(
+    qid: int | None,
+    front: str,
+    back: str,
+    subject: str | None = None,
+    chapter: str | None = None,
+) -> dict | None:
     questions = load_questions()
     if qid is None:
         new_id = max((q["id"] for q in questions), default=0) + 1
-        new_q = {"id": new_id, "front": front, "back": back}
+        new_q = {
+            "id": new_id,
+            "front": front,
+            "back": back,
+            "subject": _clean_text(subject, "General"),
+            "chapter": _clean_text(chapter, "General"),
+        }
         questions.append(new_q)
         save_questions(questions)
         return new_q
@@ -42,9 +69,26 @@ def save_question(qid: int | None, front: str, back: str) -> dict | None:
             if q["id"] == qid:
                 q["front"] = front
                 q["back"] = back
+                q["subject"] = _clean_text(subject, q.get("subject", "General"))
+                q["chapter"] = _clean_text(chapter, q.get("chapter", "General"))
                 save_questions(questions)
                 return q
         return None
+
+
+def build_question_catalog() -> dict:
+    catalog: dict[str, list[str]] = {}
+    for question in load_questions():
+        subject = question.get("subject", "General")
+        chapter = question.get("chapter", "General")
+        chapters = catalog.setdefault(subject, [])
+        if chapter not in chapters:
+            chapters.append(chapter)
+
+    return {
+        "subjects": list(catalog.keys()),
+        "chapters_by_subject": catalog,
+    }
 
 
 def load_cards() -> dict[int, dict]:
@@ -76,7 +120,6 @@ def get_due_cards(now: datetime) -> list[dict]:
     """Merge question content with card metadata for every question that is due."""
     questions = load_questions()
     cards     = load_cards()
-    print(questions)
     due = []
     for q in questions:
         qid  = q["id"]
@@ -86,6 +129,8 @@ def get_due_cards(now: datetime) -> list[dict]:
                 "id":     qid,
                 "front":  q["front"],
                 "back":   q["back"],
+                "subject": q.get("subject", "General"),
+                "chapter": q.get("chapter", "General"),
                 "state":  card.state,
                 "due":    card.due.isoformat(),
             })
@@ -105,7 +150,7 @@ def review_card(qid: int, rating_val: int, now: datetime) -> dict:
     cards[qid] = serialize_card(card)
     save_cards(cards)
     
-    save_review_log(review_log)
+    save_review_log(review_log, qid)
 
     return {
         "next_due":       card.due.isoformat(),
@@ -123,11 +168,14 @@ def load_review_log():
         return json.load(f)
 
 
-def save_review_log(review_log: ReviewLog):
+def save_review_log(review_log: ReviewLog, qid: int | None = None):
     print("saved log")
 
     review_logs = load_review_log()
-    review_logs.append(review_log.to_dict())
+    entry = review_log.to_dict()
+    if qid is not None:
+        entry["question_id"] = qid
+    review_logs.append(entry)
     with open(REVIEW_LOG_FILE, "w") as f:
         json.dump(review_logs, f, indent=2, default=str)
 

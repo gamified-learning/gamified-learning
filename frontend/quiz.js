@@ -1,4 +1,4 @@
-const API_BASE = 'http://127.0.0.1:5000/api';
+const API_BASE = '/api';
 let dueQuestions = [];
 let currentIndex = 0;
 let answerRevealed = false;
@@ -43,6 +43,8 @@ function renderCurrentState() {
 
     // Update status badge and progress
     document.querySelector('.status-badge').textContent = stateMap[q.state] ?? "Review";
+    document.querySelector('.question-subject').textContent = q.subject || 'General';
+    document.querySelector('.question-chapter').textContent = q.chapter || 'General';
     document.querySelector('.card-progress').textContent =
         `Question ${currentIndex + 1} of ${dueQuestions.length}`;
 

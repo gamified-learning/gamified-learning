@@ -212,6 +212,28 @@
 
             <!-- Text paste -->
             <div class="form-group">
+                <label for="upload-subject">Subject</label>
+                <input
+                    id="upload-subject"
+                    class="form-control"
+                    list="upload-subject-options"
+                    placeholder="e.g. Database Systems"
+                />
+                <datalist id="upload-subject-options"></datalist>
+            </div>
+
+            <div class="form-group">
+                <label for="upload-chapter">Chapter</label>
+                <input
+                    id="upload-chapter"
+                    class="form-control"
+                    list="upload-chapter-options"
+                    placeholder="e.g. Normalization"
+                />
+                <datalist id="upload-chapter-options"></datalist>
+            </div>
+
+            <div class="form-group">
                 <label for="content-text">Paste your content</label>
                 <textarea
                     id="content-text"

@@ -37,6 +37,18 @@
                 <input type="hidden" id="q-id">
                 
                 <div class="form-group">
+                    <label>Subject</label>
+                    <input id="q-subject" class="form-control" list="subject-options" placeholder="e.g. Database Systems" />
+                    <datalist id="subject-options"></datalist>
+                </div>
+
+                <div class="form-group">
+                    <label>Chapter</label>
+                    <input id="q-chapter" class="form-control" list="chapter-options" placeholder="e.g. Normalization" />
+                    <datalist id="chapter-options"></datalist>
+                </div>
+
+                <div class="form-group">
                     <label>Question (Front)</label>
                     <textarea id="q-front" class="form-control" rows="4" placeholder="Enter your question here..."></textarea>
                 </div>

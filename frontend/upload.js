@@ -1,9 +1,64 @@
-const API_BASE = 'http://127.0.0.1:5000/api';
+const API_BASE = '/api';
+let questionCatalog = { subjects: [], chapters_by_subject: {} };
 
 // --- Drag-and-drop logic ---
 const dropZone = document.getElementById('drop-zone');
 const fileInput = document.getElementById('file-input');
 const fileNameEl = document.getElementById('file-name');
+
+document.addEventListener('DOMContentLoaded', initUploadPage);
+
+async function initUploadPage() {
+    const subjectInput = document.getElementById('upload-subject');
+    subjectInput.addEventListener('input', renderChapterOptions);
+    subjectInput.addEventListener('change', renderChapterOptions);
+
+    await fetchCatalog();
+}
+
+async function fetchCatalog() {
+    try {
+        const response = await fetch(`${API_BASE}/catalog`);
+        if (!response.ok) return;
+
+        const data = await response.json();
+        questionCatalog = {
+            subjects: data.subjects || [],
+            chapters_by_subject: data.chapters_by_subject || {},
+        };
+        renderSubjectOptions();
+        renderChapterOptions();
+    } catch (error) {
+        console.error('Error loading catalog:', error);
+    }
+}
+
+function renderSubjectOptions() {
+    const subjectOptions = document.getElementById('upload-subject-options');
+    subjectOptions.innerHTML = '';
+
+    questionCatalog.subjects.forEach(subject => {
+        const option = document.createElement('option');
+        option.value = subject;
+        subjectOptions.appendChild(option);
+    });
+}
+
+function renderChapterOptions() {
+    const subject = document.getElementById('upload-subject').value.trim();
+    const chapterOptions = document.getElementById('upload-chapter-options');
+    chapterOptions.innerHTML = '';
+
+    const chapters = subject && questionCatalog.chapters_by_subject[subject]
+        ? questionCatalog.chapters_by_subject[subject]
+        : Object.values(questionCatalog.chapters_by_subject).flat();
+
+    [...new Set(chapters)].forEach(chapter => {
+        const option = document.createElement('option');
+        option.value = chapter;
+        chapterOptions.appendChild(option);
+    });
+}
 
 dropZone.addEventListener('click', () => fileInput.click());
 dropZone.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') fileInput.click(); });
@@ -35,9 +90,16 @@ function setFile(file) {
 async function submitContent() {
     const text = document.getElementById('content-text').value.trim();
     const file = fileInput._selectedFile;
+    const subject = document.getElementById('upload-subject').value.trim();
+    const chapter = document.getElementById('upload-chapter').value.trim();
 
     if (!text && !file) {
         showResult('error', 'Please paste some text or upload a file first.');
+        return;
+    }
+
+    if (!subject || !chapter) {
+        showResult('error', 'Please choose a subject and chapter for the generated flashcards.');
         return;
     }
 
@@ -46,6 +108,8 @@ async function submitContent() {
 
     try {
         const formData = new FormData();
+        formData.append('subject', subject);
+        formData.append('chapter', chapter);
         if (text) formData.append('text', text);
         if (file)  formData.append('file', file);
 

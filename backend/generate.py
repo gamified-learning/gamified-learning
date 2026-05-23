@@ -67,9 +67,13 @@ def extract_file_text(file) -> str:
 
 
 
-def build_prompt(text: str, file_text: str) -> str:
+def build_prompt(text: str, file_text: str, subject: str = "", chapter: str = "") -> str:
     """Build the user prompt sent to the model."""
     parts = []
+    if subject:
+        parts.append(f"=== Subject ===\n{subject}")
+    if chapter:
+        parts.append(f"=== Chapter ===\n{chapter}")
     if text:
         parts.append(f"=== Pasted text ===\n{text}")
     if file_text:
@@ -80,6 +84,7 @@ def build_prompt(text: str, file_text: str) -> str:
     return (
         "You are an expert quiz generator. "
         "Based on the content below, generate 5 distinct questions that test understanding of the key concepts. "
+        "Use the subject and chapter as the organizational context for the questions. "
         "Return ONLY a valid JSON array where each element is an object with keys: "
         '"question" (string), "answer" (the correct short answer string), '
         f"{combined}"

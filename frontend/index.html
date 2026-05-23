@@ -210,6 +210,184 @@
             justify-content: center;
         }
 
+        .hard-card {
+            background: var(--card-bg, #fff);
+            border: 1px solid var(--border, #e2e8f0);
+            border-radius: 14px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 1.5rem;
+        }
+
+        .hard-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .hard-card-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted, #64748b);
+        }
+
+        .hard-card-count {
+            font-size: 0.82rem;
+            color: var(--text-muted, #64748b);
+        }
+
+        .hard-questions-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .hard-question {
+            border: 1px solid var(--border, #e2e8f0);
+            border-radius: 12px;
+            padding: 1rem 1.1rem;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        .hard-question-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .hard-question-front {
+            font-size: 0.98rem;
+            font-weight: 600;
+            color: #0f172a;
+            line-height: 1.4;
+        }
+
+        .hard-badge {
+            flex-shrink: 0;
+            border-radius: 999px;
+            padding: 0.25rem 0.55rem;
+            background: #fee2e2;
+            color: #b91c1c;
+            border: 1px solid #fecaca;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .hard-question-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.75rem;
+            font-size: 0.78rem;
+            color: var(--text-muted, #64748b);
+        }
+
+        .hard-question-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 999px;
+            background: #f1f5f9;
+        }
+
+        .hard-empty {
+            color: var(--text-muted, #64748b);
+            font-size: 0.92rem;
+            padding: 0.5rem 0;
+        }
+
+        .chapter-card {
+            background: var(--card-bg, #fff);
+            border: 1px solid var(--border, #e2e8f0);
+            border-radius: 14px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 1.5rem;
+        }
+
+        .chapter-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-card-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted, #64748b);
+        }
+
+        .chapter-group-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .chapter-group {
+            border: 1px solid var(--border, #e2e8f0);
+            border-radius: 12px;
+            padding: 1rem;
+            background: #fbfdff;
+        }
+
+        .chapter-group-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.7rem;
+        }
+
+        .chapter-list {
+            display: grid;
+            gap: 0.65rem;
+        }
+
+        .chapter-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.75rem 0.85rem;
+            border-radius: 10px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+        }
+
+        .chapter-row-main {
+            min-width: 0;
+        }
+
+        .chapter-row-name {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .chapter-row-meta {
+            margin-top: 0.25rem;
+            font-size: 0.76rem;
+            color: var(--text-muted, #64748b);
+        }
+
+        .chapter-row-badge {
+            flex-shrink: 0;
+            border-radius: 999px;
+            padding: 0.25rem 0.55rem;
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
         .progress-row {
             display: flex;
             justify-content: space-between;
@@ -388,6 +566,26 @@
             </div>
         </section>
 
+        <section class="hard-card" aria-label="Hardest questions">
+            <div class="hard-card-header">
+                <div class="hard-card-title">Hardest Questions</div>
+                <div class="hard-card-count" id="hard-question-count">Loading…</div>
+            </div>
+            <div class="hard-questions-list" id="hard-questions-list">
+                <div class="skeleton" style="height:3.8rem;width:100%;border-radius:12px"></div>
+            </div>
+        </section>
+
+        <section class="chapter-card" aria-label="Hardest chapters by subject">
+            <div class="chapter-card-header">
+                <div class="chapter-card-title">Hardest Chapters by Subject</div>
+                <div class="hard-card-count" id="hard-chapter-count">Loading…</div>
+            </div>
+            <div class="chapter-group-list" id="hard-chapter-groups">
+                <div class="skeleton" style="height:4.5rem;width:100%;border-radius:12px"></div>
+            </div>
+        </section>
+
         <!-- CTA -->
         <section class="cta-section" aria-label="Start quiz">
             <h2>Ready to review?</h2>
@@ -397,7 +595,7 @@
     </main>
 
     <script>
-        const API_BASE = 'http://127.0.0.1:5000/api';
+        const API_BASE = '/api';
 
         /* ── Heatmap builder ── */
         function buildHeatmap(data) {
@@ -489,6 +687,65 @@
             }
         }
 
+        function renderHardQuestions(items) {
+            const list = document.getElementById('hard-questions-list');
+            const count = document.getElementById('hard-question-count');
+
+            if (!items || items.length === 0) {
+                count.textContent = 'No hard cards yet';
+                list.innerHTML = '<div class="hard-empty">No questions have been marked hard or again yet.</div>';
+                return;
+            }
+
+            count.textContent = `${items.length} tracked question${items.length === 1 ? '' : 's'}`;
+            list.innerHTML = items.map(item => `
+                <article class="hard-question">
+                    <div class="hard-question-top">
+                        <div class="hard-question-front">${item.front}</div>
+                        <div class="hard-badge">${item.hard_reviews} hard</div>
+                    </div>
+                    <div class="hard-question-meta">
+                        <span>${item.subject || 'General'}</span>
+                        <span>${item.chapter || 'General'}</span>
+                        <span>${item.again_count} again</span>
+                        <span>${item.hard_count} hard</span>
+                        <span>${item.total_reviews} reviews</span>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        function renderHardChapters(groups) {
+            const list = document.getElementById('hard-chapter-groups');
+            const count = document.getElementById('hard-chapter-count');
+
+            if (!groups || groups.length === 0) {
+                count.textContent = 'No hard chapters yet';
+                list.innerHTML = '<div class="hard-empty">No chapters have enough hard reviews yet.</div>';
+                return;
+            }
+
+            const totalChapters = groups.reduce((sum, group) => sum + group.chapters.length, 0);
+            count.textContent = `${totalChapters} chapter${totalChapters === 1 ? '' : 's'} across ${groups.length} subject${groups.length === 1 ? '' : 's'}`;
+
+            list.innerHTML = groups.map(group => `
+                <section class="chapter-group">
+                    <div class="chapter-group-name">${group.subject}</div>
+                    <div class="chapter-list">
+                        ${group.chapters.map(chapter => `
+                            <article class="chapter-row">
+                                <div class="chapter-row-main">
+                                    <div class="chapter-row-name">${chapter.chapter}</div>
+                                    <div class="chapter-row-meta">${chapter.question_count} question${chapter.question_count === 1 ? '' : 's'} · ${chapter.total_reviews} reviews · ${chapter.again_count} again · ${chapter.hard_count} hard</div>
+                                </div>
+                                <div class="chapter-row-badge">${chapter.hard_reviews} hard</div>
+                            </article>
+                        `).join('')}
+                    </div>
+                </section>
+            `).join('');
+        }
+
         /* ── Stats loader ── */
         async function loadStats() {
             try {
@@ -499,6 +756,8 @@
                 const total    = stats.total_count    ?? 0;
                 const learning = stats.learning_count ?? 0;
                 const streak   = stats.streak         ?? 0;
+                const hardQuestions = stats.hard_questions ?? [];
+                const hardChaptersBySubject = stats.hard_chapters_by_subject ?? [];
 
                 // Top cards
                 document.getElementById('stat-due').textContent    = due;
@@ -524,6 +783,8 @@
 
                 // Heatmap
                 if (stats.heatmap) buildHeatmap(stats.heatmap);
+                renderHardQuestions(hardQuestions);
+                renderHardChapters(hardChaptersBySubject);
 
             } catch (err) {
                 console.error('Failed to load stats:', err);
@@ -534,6 +795,10 @@
                     document.getElementById(id).textContent = '';
                 });
                 document.getElementById('cta-due-count').textContent = 'some';
+                document.getElementById('hard-question-count').textContent = 'Unavailable';
+                document.getElementById('hard-questions-list').innerHTML = '<div class="hard-empty">Hard-question stats could not be loaded.</div>';
+                document.getElementById('hard-chapter-count').textContent = 'Unavailable';
+                document.getElementById('hard-chapter-groups').innerHTML = '<div class="hard-empty">Hard-chapter stats could not be loaded.</div>';
             }
         }
 

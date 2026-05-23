@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 from datetime import datetime, timezone, timedelta
@@ -45,6 +47,11 @@ def get_all_questions():
     questions = load_questions()
     return jsonify({"questions": questions})
 
+
+@app.route("/api/catalog", methods=["GET"])
+def get_catalog():
+    return jsonify(build_question_catalog())
+
 @app.route("/api/save_question", methods=["POST"])
 def api_save_question():
     data = request.get_json(silent=True)
@@ -54,11 +61,13 @@ def api_save_question():
     qid = data.get("id")
     front = data.get("front")
     back = data.get("back")
+    subject = data.get("subject")
+    chapter = data.get("chapter")
     
     if not front or not back:
         return jsonify({"error": "Missing front or back"}), 400
         
-    updated = save_question(qid, front, back)
+    updated = save_question(qid, front, back, subject, chapter)
     if not updated:
         return jsonify({"error": f"Question id '{qid}' not found"}), 404
         
@@ -124,11 +133,16 @@ def get_stats():
     due_count = len(get_due_cards(now))
     learning_count = sum(1 for q in questions if q.get("state") in [0, 1, 3])
     total_count = len(questions)
+    hard_questions = stats.hard_questions()
+    hard_chapters_by_subject = stats.hard_chapters_by_subject()
 
     return jsonify({
         "due_count": due_count,
         "learning_count": learning_count,
         "total_count": total_count,
+        "hard_question_count": len(hard_questions),
+        "hard_questions": hard_questions,
+        "hard_chapters_by_subject": hard_chapters_by_subject,
         "heatmap": stats.heatmap(),
         "streak": stats.streak()
     })
@@ -138,6 +152,8 @@ def get_stats():
 def upload_content():
     text      = request.form.get("text", "")
     file      = request.files.get("file")
+    subject   = request.form.get("subject", "").strip()
+    chapter   = request.form.get("chapter", "").strip()
     provider  = "openrouter"
     with open("api-key") as f:
         api_key   = f.read().strip()
@@ -146,7 +162,7 @@ def upload_content():
         return jsonify({"success": False, "error": "api_key is required"}), 400
 
     file_text = generate.extract_file_text(file)
-    prompt    = generate.build_prompt(text, file_text)
+    prompt    = generate.build_prompt(text, file_text, subject=subject, chapter=chapter)
 
     try:
         if provider == "openrouter":
@@ -174,7 +190,7 @@ def upload_content():
         front = q.get("question", "")
         back  = q.get("answer", "")
         if front and back:
-            saved_q = save_question(None, front, back)
+            saved_q = save_question(None, front, back, subject, chapter)
             if saved_q:
                 saved.append(saved_q)
 
