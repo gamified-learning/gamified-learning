@@ -1,62 +1,170 @@
 [
   {
     "id": 1,
-    "front": "What is the capital of France?",
-    "back": "Paris"
+    "front": "What is the average time complexity of quicksort?",
+    "back": "O(n log n)",
+    "subject": "Algorithms",
+    "chapter": "Sorting"
   },
   {
     "id": 2,
-    "front": "What does HTTP stand for?",
-    "back": "HyperText Transfer Protocol"
+    "front": "What property defines a binary search tree?",
+    "back": "Left subtree keys are less than the node and right subtree keys are greater than the node.",
+    "subject": "Data Structures",
+    "chapter": "Trees"
   },
   {
     "id": 3,
-    "front": "What is the time complexity of binary search?",
-    "back": "O(log n)"
+    "front": "What does a WHERE clause do in SQL?",
+    "back": "Filters rows returned by a query based on a condition.",
+    "subject": "Databases",
+    "chapter": "SQL"
   },
   {
     "id": 4,
-    "front": "What keyword is used to define a function in Python?",
-    "back": "def"
+    "front": "What does TCP provide that IP does not?",
+    "back": "Reliable, ordered, and error-checked delivery.",
+    "subject": "Networks",
+    "chapter": "TCP"
   },
   {
     "id": 5,
-    "front": "What does FSRS stand for?",
-    "back": "Free Spaced Repetition Scheduler"
+    "front": "What does preemptive scheduling allow an OS to do?",
+    "back": "Interrupt a running process to give CPU time to another process.",
+    "subject": "Operating Systems",
+    "chapter": "Scheduling"
   },
   {
     "id": 6,
-    "front": "how may hands do human have",
-    "back": "2"
+    "front": "What is the main purpose of a cryptographic hash function?",
+    "back": "Produce a fixed-size digest that is hard to reverse and collision-resistant.",
+    "subject": "Security",
+    "chapter": "Cryptography"
   },
   {
     "id": 7,
-    "front": "what is the capital of india",
-    "back": "Delhi"
+    "front": "What is overfitting in machine learning?",
+    "back": "A model fits training data too closely and generalizes poorly to new data.",
+    "subject": "Machine Learning",
+    "chapter": "Basics"
   },
   {
     "id": 8,
-    "front": "What is a DBMS and what are its primary functions?",
-    "back": "A DBMS is software that allows users to create, store, retrieve, and manage data efficiently."
+    "front": "What does eventual consistency mean in distributed systems?",
+    "back": "Replicas converge to the same state over time if no new updates occur.",
+    "subject": "Distributed Systems",
+    "chapter": "Consistency"
   },
-  {
+    {
     "id": 9,
-    "front": "What are the main problems with file systems that DBMS solves?",
-    "back": "Data redundancy, inconsistency, difficulty in accessing data, data isolation, integrity issues, atomicity problems, concurrent access issues, and security problems."
+    "front": "What is the role of a lexer in a compiler?",
+    "back": "Convert a stream of characters into tokens.",
+    "subject": "Programming Languages",
+    "chapter": "Compilation"
   },
   {
     "id": 10,
-    "front": "What are the three levels of data abstraction in a DBMS?",
-    "back": "Physical, logical, and view levels."
+    "front": "What is a unit test?",
+    "back": "A test that verifies a small, isolated piece of code behaves as expected.",
+    "subject": "Software Engineering",
+    "chapter": "Testing"
   },
   {
     "id": 11,
-    "front": "Differentiate between schema and instance in a database.",
-    "back": "Schema is the logical structure of the database (e.g., table definitions), while instance refers to the actual data stored at a given time."
+    "front": "What does HTTP status code 404 indicate?",
+    "back": "The requested resource was not found.",
+    "subject": "Web",
+    "chapter": "HTTP"
   },
   {
     "id": 12,
-    "front": "What are the two types of data independence?",
-    "back": "Physical data independence and logical data independence."
+    "front": "Why do CPUs use caches?",
+    "back": "To reduce average memory access time by storing frequently used data closer to the CPU.",
+    "subject": "Computer Architecture",
+    "chapter": "Memory"
+  },
+  {
+    "id": 13,
+    "front": "What does a graph traversal using BFS compute first?",
+    "back": "The shortest path in terms of number of edges from the start node.",
+    "subject": "Algorithms",
+    "chapter": "Graphs"
+  },
+  {
+    "id": 14,
+    "front": "What is the average-case time complexity of lookup in a hash table?",
+    "back": "O(1)",
+    "subject": "Data Structures",
+    "chapter": "Hashing"
+  },
+  {
+    "id": 15,
+    "front": "What property does the ACID 'D' stand for?",
+    "back": "Durability",
+    "subject": "Databases",
+    "chapter": "Transactions"
+  },
+  {
+    "id": 16,
+    "front": "What is the purpose of a routing table?",
+    "back": "Store paths and next hops to reach network destinations.",
+    "subject": "Networks",
+    "chapter": "Routing"
+  },
+  {
+    "id": 17,
+    "front": "What is a page fault?",
+    "back": "An exception when a process accesses a page not in physical memory.",
+    "subject": "Operating Systems",
+    "chapter": "Memory"
+  },
+  {
+    "id": 18,
+    "front": "What is the goal of multi-factor authentication?",
+    "back": "Increase security by requiring more than one independent credential.",
+    "subject": "Security",
+    "chapter": "Authentication"
+  },
+  {
+    "id": 19,
+    "front": "What is a feature in machine learning?",
+    "back": "An input variable used by a model to make predictions.",
+    "subject": "Machine Learning",
+    "chapter": "Features"
+  },
+  {
+    "id": 20,
+    "front": "What is a quorum in a replicated system?",
+    "back": "The minimum number of replicas that must agree for an operation to proceed.",
+    "subject": "Distributed Systems",
+    "chapter": "Replication"
+  },
+  {
+    "id": 21,
+    "front": "What is type inference?",
+    "back": "The compiler deduces types without explicit annotations.",
+    "subject": "Programming Languages",
+    "chapter": "Type Systems"
+  },
+  {
+    "id": 22,
+    "front": "What does the Singleton design pattern ensure?",
+    "back": "Only one instance of a class exists and it is globally accessible.",
+    "subject": "Software Engineering",
+    "chapter": "Design Patterns"
+  },
+  {
+    "id": 23,
+    "front": "What is a RESTful API?",
+    "back": "An API that uses HTTP methods and stateless resources.",
+    "subject": "Web",
+    "chapter": "REST"
+  },
+  {
+    "id": 24,
+    "front": "What is pipelining in a CPU?",
+    "back": "Overlapping instruction stages to increase throughput.",
+    "subject": "Computer Architecture",
+    "chapter": "Pipelining"
   }
 ]

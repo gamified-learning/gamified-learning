@@ -1,38 +1,1124 @@
 [
   {
-    "card_id": 1774285419501,
+    "card_id": 2066692381848,
     "rating": 2,
-    "review_datetime": "2026-03-23T17:03:39.500634+00:00",
-    "review_duration": null
+    "review_datetime": "2026-01-25T01:45:41+00:00",
+    "review_duration": 42
   },
   {
-    "card_id": 1774285706058,
-    "rating": 2,
-    "review_datetime": "2026-03-23T17:08:26.058187+00:00",
-    "review_duration": null
-  },
-  {
-    "card_id": 1774285710101,
+    "card_id": 4835181413465,
     "rating": 3,
-    "review_datetime": "2026-03-23T17:08:30.100890+00:00",
-    "review_duration": null
+    "review_datetime": "2026-01-25T04:29:20+00:00",
+    "review_duration": 14
   },
   {
-    "card_id": 1774710782316,
-    "rating": 3,
-    "review_datetime": "2026-03-28T15:13:02.316033+00:00",
-    "review_duration": null
-  },
-  {
-    "card_id": 1774710782316,
-    "rating": 2,
-    "review_datetime": "2026-03-28T16:45:46.938668+00:00",
-    "review_duration": null
-  },
-  {
-    "card_id": 1774710782316,
+    "card_id": 1795169287472,
     "rating": 1,
-    "review_datetime": "2026-03-28T16:45:47.430395+00:00",
-    "review_duration": null
+    "review_datetime": "2026-01-25T21:00:29+00:00",
+    "review_duration": 33
+  },
+  {
+    "card_id": 6195618841656,
+    "rating": 2,
+    "review_datetime": "2026-01-26T08:14:28+00:00",
+    "review_duration": 35
+  },
+  {
+    "card_id": 1943546122522,
+    "rating": 2,
+    "review_datetime": "2026-01-26T22:04:34+00:00",
+    "review_duration": 30
+  },
+  {
+    "card_id": 8478387689394,
+    "rating": 1,
+    "review_datetime": "2026-01-27T03:51:55+00:00",
+    "review_duration": 23
+  },
+  {
+    "card_id": 4835181413465,
+    "rating": 3,
+    "review_datetime": "2026-01-27T19:48:51+00:00",
+    "review_duration": 10
+  },
+  {
+    "card_id": 1242884004126,
+    "rating": 2,
+    "review_datetime": "2026-01-28T01:32:16+00:00",
+    "review_duration": 13
+  },
+  {
+    "card_id": 1633683838605,
+    "rating": 2,
+    "review_datetime": "2026-01-28T23:59:22+00:00",
+    "review_duration": 10
+  },
+  {
+    "card_id": 4835181413465,
+    "rating": 3,
+    "review_datetime": "2026-01-29T00:44:27+00:00",
+    "review_duration": 23
+  },
+  {
+    "card_id": 8856133396834,
+    "rating": 3,
+    "review_datetime": "2026-01-29T21:56:15+00:00",
+    "review_duration": 19
+  },
+  {
+    "card_id": 3122703997579,
+    "rating": 3,
+    "review_datetime": "2026-01-30T05:17:09+00:00",
+    "review_duration": 21
+  },
+  {
+    "card_id": 9478025730814,
+    "rating": 3,
+    "review_datetime": "2026-01-31T01:48:21+00:00",
+    "review_duration": 18
+  },
+  {
+    "card_id": 4854098871500,
+    "rating": 2,
+    "review_datetime": "2026-01-31T06:18:10+00:00",
+    "review_duration": 44
+  },
+  {
+    "card_id": 8780983985023,
+    "rating": 2,
+    "review_datetime": "2026-01-31T22:05:24+00:00",
+    "review_duration": 30
+  },
+  {
+    "card_id": 8856133396834,
+    "rating": 2,
+    "review_datetime": "2026-02-01T09:53:34+00:00",
+    "review_duration": 18
+  },
+  {
+    "card_id": 8047805940798,
+    "rating": 3,
+    "review_datetime": "2026-02-01T22:22:54+00:00",
+    "review_duration": 29
+  },
+  {
+    "card_id": 4658293099819,
+    "rating": 1,
+    "review_datetime": "2026-02-02T04:39:51+00:00",
+    "review_duration": 32
+  },
+  {
+    "card_id": 1242884004126,
+    "rating": 2,
+    "review_datetime": "2026-02-03T06:38:16+00:00",
+    "review_duration": 22
+  },
+  {
+    "card_id": 1242884004126,
+    "rating": 3,
+    "review_datetime": "2026-02-03T11:00:42+00:00",
+    "review_duration": 21
+  },
+  {
+    "card_id": 8047805940798,
+    "rating": 3,
+    "review_datetime": "2026-02-03T20:46:29+00:00",
+    "review_duration": 4
+  },
+  {
+    "card_id": 1795169287472,
+    "rating": 2,
+    "review_datetime": "2026-02-04T04:59:42+00:00",
+    "review_duration": 38
+  },
+  {
+    "card_id": 1795169287472,
+    "rating": 3,
+    "review_datetime": "2026-02-04T22:56:08+00:00",
+    "review_duration": 13
+  },
+  {
+    "card_id": 9478025730814,
+    "rating": 3,
+    "review_datetime": "2026-02-04T22:59:24+00:00",
+    "review_duration": 29
+  },
+  {
+    "card_id": 3519355476273,
+    "rating": 3,
+    "review_datetime": "2026-02-05T21:35:18+00:00",
+    "review_duration": 38
+  },
+  {
+    "card_id": 3519355476273,
+    "rating": 1,
+    "review_datetime": "2026-02-06T03:07:56+00:00",
+    "review_duration": 32
+  },
+  {
+    "card_id": 4730125623965,
+    "rating": 2,
+    "review_datetime": "2026-02-06T22:47:35+00:00",
+    "review_duration": 37
+  },
+  {
+    "card_id": 6670509580791,
+    "rating": 2,
+    "review_datetime": "2026-02-07T06:36:12+00:00",
+    "review_duration": 28
+  },
+  {
+    "card_id": 1943546122522,
+    "rating": 2,
+    "review_datetime": "2026-02-07T21:02:42+00:00",
+    "review_duration": 43
+  },
+  {
+    "card_id": 1633683838605,
+    "rating": 3,
+    "review_datetime": "2026-02-07T23:17:18+00:00",
+    "review_duration": 10
+  },
+  {
+    "card_id": 4835181413465,
+    "rating": 3,
+    "review_datetime": "2026-02-09T01:45:21+00:00",
+    "review_duration": 28
+  },
+  {
+    "card_id": 9623531247468,
+    "rating": 1,
+    "review_datetime": "2026-02-09T02:49:18+00:00",
+    "review_duration": 37
+  },
+  {
+    "card_id": 4835181413465,
+    "rating": 3,
+    "review_datetime": "2026-02-09T21:54:14+00:00",
+    "review_duration": 16
+  },
+  {
+    "card_id": 8478387689394,
+    "rating": 2,
+    "review_datetime": "2026-02-10T01:43:40+00:00",
+    "review_duration": 40
+  },
+  {
+    "card_id": 8047805940798,
+    "rating": 3,
+    "review_datetime": "2026-02-10T22:24:17+00:00",
+    "review_duration": 38
+  },
+  {
+    "card_id": 1633683838605,
+    "rating": 3,
+    "review_datetime": "2026-02-11T03:32:31+00:00",
+    "review_duration": 23
+  },
+  {
+    "card_id": 4730125623965,
+    "rating": 3,
+    "review_datetime": "2026-02-12T03:57:58+00:00",
+    "review_duration": 9
+  },
+  {
+    "card_id": 9478025730814,
+    "rating": 4,
+    "review_datetime": "2026-02-12T09:40:53+00:00",
+    "review_duration": 39
+  },
+  {
+    "card_id": 8047805940798,
+    "rating": 3,
+    "review_datetime": "2026-02-12T20:05:40+00:00",
+    "review_duration": 7
+  },
+  {
+    "card_id": 8047805940798,
+    "rating": 2,
+    "review_datetime": "2026-02-13T06:10:23+00:00",
+    "review_duration": 27
+  },
+  {
+    "card_id": 8856133396834,
+    "rating": 4,
+    "review_datetime": "2026-02-14T06:13:42+00:00",
+    "review_duration": 30
+  },
+  {
+    "card_id": 2066692381848,
+    "rating": 3,
+    "review_datetime": "2026-02-14T08:53:17+00:00",
+    "review_duration": 7
+  },
+  {
+    "card_id": 3122703997579,
+    "rating": 3,
+    "review_datetime": "2026-02-14T20:00:21+00:00",
+    "review_duration": 37
+  },
+  {
+    "card_id": 1795169287472,
+    "rating": 4,
+    "review_datetime": "2026-02-15T03:44:59+00:00",
+    "review_duration": 45
+  },
+  {
+    "card_id": 4835181413465,
+    "rating": 1,
+    "review_datetime": "2026-02-15T21:38:40+00:00",
+    "review_duration": 44
+  },
+  {
+    "card_id": 1242884004126,
+    "rating": 3,
+    "review_datetime": "2026-02-15T23:40:16+00:00",
+    "review_duration": 34
+  },
+  {
+    "card_id": 5611387590360,
+    "rating": 1,
+    "review_datetime": "2026-02-17T00:34:46+00:00",
+    "review_duration": 39
+  },
+  {
+    "card_id": 3122703997579,
+    "rating": 3,
+    "review_datetime": "2026-02-17T00:47:28+00:00",
+    "review_duration": 10
+  },
+  {
+    "card_id": 1961962271882,
+    "rating": 2,
+    "review_datetime": "2026-02-18T02:10:29+00:00",
+    "review_duration": 34
+  },
+  {
+    "card_id": 1242884004126,
+    "rating": 4,
+    "review_datetime": "2026-02-18T08:35:00+00:00",
+    "review_duration": 19
+  },
+  {
+    "card_id": 1454692931430,
+    "rating": 1,
+    "review_datetime": "2026-02-18T22:04:56+00:00",
+    "review_duration": 30
+  },
+  {
+    "card_id": 1961962271882,
+    "rating": 2,
+    "review_datetime": "2026-02-19T07:17:59+00:00",
+    "review_duration": 15
+  },
+  {
+    "card_id": 8047805940798,
+    "rating": 3,
+    "review_datetime": "2026-02-19T23:34:02+00:00",
+    "review_duration": 35
+  },
+  {
+    "card_id": 8780983985023,
+    "rating": 2,
+    "review_datetime": "2026-02-20T02:43:20+00:00",
+    "review_duration": 10
+  },
+  {
+    "card_id": 6195618841656,
+    "rating": 3,
+    "review_datetime": "2026-02-20T20:14:52+00:00",
+    "review_duration": 22
+  },
+  {
+    "card_id": 9039794128063,
+    "rating": 2,
+    "review_datetime": "2026-02-21T06:37:35+00:00",
+    "review_duration": 29
+  },
+  {
+    "card_id": 4730125623965,
+    "rating": 2,
+    "review_datetime": "2026-02-21T20:51:20+00:00",
+    "review_duration": 30
+  },
+  {
+    "card_id": 2066692381848,
+    "rating": 3,
+    "review_datetime": "2026-02-21T23:27:08+00:00",
+    "review_duration": 19
+  },
+  {
+    "card_id": 9623531247468,
+    "rating": 3,
+    "review_datetime": "2026-02-22T20:19:23+00:00",
+    "review_duration": 21
+  },
+  {
+    "card_id": 8047805940798,
+    "rating": 3,
+    "review_datetime": "2026-02-23T07:17:04+00:00",
+    "review_duration": 7
+  },
+  {
+    "card_id": 1633683838605,
+    "rating": 4,
+    "review_datetime": "2026-02-23T20:57:22+00:00",
+    "review_duration": 6
+  },
+  {
+    "card_id": 1242884004126,
+    "rating": 3,
+    "review_datetime": "2026-02-24T01:58:36+00:00",
+    "review_duration": 13
+  },
+  {
+    "card_id": 4854098871500,
+    "rating": 2,
+    "review_datetime": "2026-02-25T01:43:15+00:00",
+    "review_duration": 23
+  },
+  {
+    "card_id": 3519355476273,
+    "rating": 4,
+    "review_datetime": "2026-02-25T05:13:41+00:00",
+    "review_duration": 41
+  },
+  {
+    "card_id": 9623531247468,
+    "rating": 3,
+    "review_datetime": "2026-02-25T22:22:49+00:00",
+    "review_duration": 38
+  },
+  {
+    "card_id": 4730125623965,
+    "rating": 3,
+    "review_datetime": "2026-02-26T10:25:56+00:00",
+    "review_duration": 19
+  },
+  {
+    "card_id": 4730125623965,
+    "rating": 3,
+    "review_datetime": "2026-02-27T08:39:47+00:00",
+    "review_duration": 45
+  },
+  {
+    "card_id": 8856133396834,
+    "rating": 1,
+    "review_datetime": "2026-02-27T09:09:16+00:00",
+    "review_duration": 34
+  },
+  {
+    "card_id": 1633683838605,
+    "rating": 3,
+    "review_datetime": "2026-02-27T23:15:47+00:00",
+    "review_duration": 7
+  },
+  {
+    "card_id": 6195618841656,
+    "rating": 3,
+    "review_datetime": "2026-02-27T23:59:59+00:00",
+    "review_duration": 18
+  },
+  {
+    "card_id": 2066692381848,
+    "rating": 4,
+    "review_datetime": "2026-03-01T02:55:10+00:00",
+    "review_duration": 40
+  },
+  {
+    "card_id": 8856133396834,
+    "rating": 3,
+    "review_datetime": "2026-03-01T03:47:37+00:00",
+    "review_duration": 28
+  },
+  {
+    "card_id": 9039794128063,
+    "rating": 2,
+    "review_datetime": "2026-03-02T00:56:26+00:00",
+    "review_duration": 25
+  },
+  {
+    "card_id": 1242884004126,
+    "rating": 3,
+    "review_datetime": "2026-03-02T08:57:37+00:00",
+    "review_duration": 42
+  },
+  {
+    "card_id": 1454692931430,
+    "rating": 2,
+    "review_datetime": "2026-03-02T19:11:47+00:00",
+    "review_duration": 8
+  },
+  {
+    "card_id": 9478025730814,
+    "rating": 3,
+    "review_datetime": "2026-03-03T07:23:14+00:00",
+    "review_duration": 29
+  },
+  {
+    "card_id": 8478387689394,
+    "rating": 4,
+    "review_datetime": "2026-03-03T23:32:31+00:00",
+    "review_duration": 32
+  },
+  {
+    "card_id": 1795169287472,
+    "rating": 1,
+    "review_datetime": "2026-03-04T05:50:59+00:00",
+    "review_duration": 35
+  },
+  {
+    "card_id": 4730125623965,
+    "rating": 3,
+    "review_datetime": "2026-03-04T21:48:03+00:00",
+    "review_duration": 32
+  },
+  {
+    "card_id": 4730125623965,
+    "rating": 3,
+    "review_datetime": "2026-03-05T08:51:42+00:00",
+    "review_duration": 9
+  },
+  {
+    "card_id": 1242884004126,
+    "rating": 3,
+    "review_datetime": "2026-03-05T22:09:40+00:00",
+    "review_duration": 12
+  },
+  {
+    "card_id": 8047805940798,
+    "rating": 2,
+    "review_datetime": "2026-03-06T02:17:10+00:00",
+    "review_duration": 39
+  },
+  {
+    "card_id": 8856133396834,
+    "rating": 3,
+    "review_datetime": "2026-03-06T22:24:55+00:00",
+    "review_duration": 45
+  },
+  {
+    "card_id": 4730125623965,
+    "rating": 2,
+    "review_datetime": "2026-03-07T00:50:43+00:00",
+    "review_duration": 29
+  },
+  {
+    "card_id": 8856133396834,
+    "rating": 4,
+    "review_datetime": "2026-03-07T20:54:30+00:00",
+    "review_duration": 35
+  },
+  {
+    "card_id": 1242884004126,
+    "rating": 4,
+    "review_datetime": "2026-03-08T08:38:04+00:00",
+    "review_duration": 21
+  },
+  {
+    "card_id": 8478387689394,
+    "rating": 2,
+    "review_datetime": "2026-03-09T02:12:52+00:00",
+    "review_duration": 23
+  },
+  {
+    "card_id": 1795169287472,
+    "rating": 3,
+    "review_datetime": "2026-03-09T07:24:38+00:00",
+    "review_duration": 21
+  },
+  {
+    "card_id": 1961962271882,
+    "rating": 4,
+    "review_datetime": "2026-03-10T09:22:19+00:00",
+    "review_duration": 20
+  },
+  {
+    "card_id": 1454692931430,
+    "rating": 3,
+    "review_datetime": "2026-03-10T09:33:16+00:00",
+    "review_duration": 27
+  },
+  {
+    "card_id": 3519355476273,
+    "rating": 2,
+    "review_datetime": "2026-03-10T19:43:46+00:00",
+    "review_duration": 31
+  },
+  {
+    "card_id": 3122703997579,
+    "rating": 4,
+    "review_datetime": "2026-03-11T02:14:01+00:00",
+    "review_duration": 22
+  },
+  {
+    "card_id": 3122703997579,
+    "rating": 2,
+    "review_datetime": "2026-03-11T22:43:56+00:00",
+    "review_duration": 15
+  },
+  {
+    "card_id": 9478025730814,
+    "rating": 1,
+    "review_datetime": "2026-03-12T01:25:21+00:00",
+    "review_duration": 38
+  },
+  {
+    "card_id": 4658293099819,
+    "rating": 2,
+    "review_datetime": "2026-03-13T03:49:41+00:00",
+    "review_duration": 34
+  },
+  {
+    "card_id": 2066692381848,
+    "rating": 2,
+    "review_datetime": "2026-03-13T03:55:04+00:00",
+    "review_duration": 39
+  },
+  {
+    "card_id": 9039794128063,
+    "rating": 4,
+    "review_datetime": "2026-03-14T03:22:41+00:00",
+    "review_duration": 38
+  },
+  {
+    "card_id": 8478387689394,
+    "rating": 3,
+    "review_datetime": "2026-03-14T05:07:18+00:00",
+    "review_duration": 21
+  },
+  {
+    "card_id": 7419170390756,
+    "rating": 1,
+    "review_datetime": "2026-03-15T08:10:29+00:00",
+    "review_duration": 38
+  },
+  {
+    "card_id": 6670509580791,
+    "rating": 2,
+    "review_datetime": "2026-03-15T11:25:43+00:00",
+    "review_duration": 35
+  },
+  {
+    "card_id": 5611387590360,
+    "rating": 2,
+    "review_datetime": "2026-03-15T19:46:56+00:00",
+    "review_duration": 43
+  },
+  {
+    "card_id": 1795169287472,
+    "rating": 1,
+    "review_datetime": "2026-03-16T05:01:07+00:00",
+    "review_duration": 27
+  },
+  {
+    "card_id": 8856133396834,
+    "rating": 4,
+    "review_datetime": "2026-03-17T03:11:37+00:00",
+    "review_duration": 12
+  },
+  {
+    "card_id": 4658293099819,
+    "rating": 2,
+    "review_datetime": "2026-03-17T03:32:48+00:00",
+    "review_duration": 18
+  },
+  {
+    "card_id": 8047805940798,
+    "rating": 2,
+    "review_datetime": "2026-03-18T00:32:58+00:00",
+    "review_duration": 22
+  },
+  {
+    "card_id": 4835181413465,
+    "rating": 2,
+    "review_datetime": "2026-03-18T03:02:06+00:00",
+    "review_duration": 23
+  },
+  {
+    "card_id": 2066692381848,
+    "rating": 2,
+    "review_datetime": "2026-03-18T22:55:40+00:00",
+    "review_duration": 17
+  },
+  {
+    "card_id": 1943546122522,
+    "rating": 2,
+    "review_datetime": "2026-03-19T08:22:46+00:00",
+    "review_duration": 37
+  },
+  {
+    "card_id": 1795169287472,
+    "rating": 2,
+    "review_datetime": "2026-03-20T04:53:40+00:00",
+    "review_duration": 32
+  },
+  {
+    "card_id": 4730125623965,
+    "rating": 3,
+    "review_datetime": "2026-03-20T05:27:38+00:00",
+    "review_duration": 23
+  },
+  {
+    "card_id": 3519355476273,
+    "rating": 3,
+    "review_datetime": "2026-03-21T11:07:24+00:00",
+    "review_duration": 33
+  },
+  {
+    "card_id": 3122703997579,
+    "rating": 3,
+    "review_datetime": "2026-03-21T11:38:12+00:00",
+    "review_duration": 38
+  },
+  {
+    "card_id": 3519355476273,
+    "rating": 4,
+    "review_datetime": "2026-03-21T23:23:48+00:00",
+    "review_duration": 16
+  },
+  {
+    "card_id": 8856133396834,
+    "rating": 3,
+    "review_datetime": "2026-03-22T01:16:02+00:00",
+    "review_duration": 41
+  },
+  {
+    "card_id": 5611387590360,
+    "rating": 2,
+    "review_datetime": "2026-03-23T00:34:49+00:00",
+    "review_duration": 8
+  },
+  {
+    "card_id": 8047805940798,
+    "rating": 3,
+    "review_datetime": "2026-03-23T08:00:33+00:00",
+    "review_duration": 35
+  },
+  {
+    "card_id": 4835181413465,
+    "rating": 4,
+    "review_datetime": "2026-03-24T01:23:27+00:00",
+    "review_duration": 42
+  },
+  {
+    "card_id": 4658293099819,
+    "rating": 2,
+    "review_datetime": "2026-03-24T11:58:00+00:00",
+    "review_duration": 22
+  },
+  {
+    "card_id": 1961962271882,
+    "rating": 4,
+    "review_datetime": "2026-03-24T21:42:58+00:00",
+    "review_duration": 34
+  },
+  {
+    "card_id": 8780983985023,
+    "rating": 4,
+    "review_datetime": "2026-03-25T05:31:01+00:00",
+    "review_duration": 25
+  },
+  {
+    "card_id": 5611387590360,
+    "rating": 3,
+    "review_datetime": "2026-03-25T22:59:23+00:00",
+    "review_duration": 33
+  },
+  {
+    "card_id": 8478387689394,
+    "rating": 3,
+    "review_datetime": "2026-03-26T05:39:20+00:00",
+    "review_duration": 35
+  },
+  {
+    "card_id": 1961962271882,
+    "rating": 2,
+    "review_datetime": "2026-03-26T22:46:57+00:00",
+    "review_duration": 8
+  },
+  {
+    "card_id": 8478387689394,
+    "rating": 3,
+    "review_datetime": "2026-03-27T04:15:03+00:00",
+    "review_duration": 42
+  },
+  {
+    "card_id": 9478025730814,
+    "rating": 2,
+    "review_datetime": "2026-03-28T02:56:36+00:00",
+    "review_duration": 27
+  },
+  {
+    "card_id": 1242884004126,
+    "rating": 3,
+    "review_datetime": "2026-03-28T04:32:19+00:00",
+    "review_duration": 30
+  },
+  {
+    "card_id": 3519355476273,
+    "rating": 4,
+    "review_datetime": "2026-03-28T21:05:46+00:00",
+    "review_duration": 34
+  },
+  {
+    "card_id": 2066692381848,
+    "rating": 4,
+    "review_datetime": "2026-03-29T08:20:25+00:00",
+    "review_duration": 18
+  },
+  {
+    "card_id": 8856133396834,
+    "rating": 3,
+    "review_datetime": "2026-03-30T04:35:08+00:00",
+    "review_duration": 10
+  },
+  {
+    "card_id": 1633683838605,
+    "rating": 2,
+    "review_datetime": "2026-03-30T10:52:04+00:00",
+    "review_duration": 27
+  },
+  {
+    "card_id": 4835181413465,
+    "rating": 4,
+    "review_datetime": "2026-03-30T23:08:42+00:00",
+    "review_duration": 40
+  },
+  {
+    "card_id": 8780983985023,
+    "rating": 3,
+    "review_datetime": "2026-03-31T01:26:42+00:00",
+    "review_duration": 35
+  },
+  {
+    "card_id": 4835181413465,
+    "rating": 3,
+    "review_datetime": "2026-04-01T07:43:47+00:00",
+    "review_duration": 26
+  },
+  {
+    "card_id": 1242884004126,
+    "rating": 3,
+    "review_datetime": "2026-04-01T10:35:10+00:00",
+    "review_duration": 36
+  },
+  {
+    "card_id": 4658293099819,
+    "rating": 3,
+    "review_datetime": "2026-04-02T03:33:55+00:00",
+    "review_duration": 33
+  },
+  {
+    "card_id": 4730125623965,
+    "rating": 3,
+    "review_datetime": "2026-04-03T08:13:59+00:00",
+    "review_duration": 27
+  },
+  {
+    "card_id": 8047805940798,
+    "rating": 2,
+    "review_datetime": "2026-04-04T01:45:19+00:00",
+    "review_duration": 44
+  },
+  {
+    "card_id": 9039794128063,
+    "rating": 3,
+    "review_datetime": "2026-04-05T07:42:41+00:00",
+    "review_duration": 24
+  },
+  {
+    "card_id": 8478387689394,
+    "rating": 1,
+    "review_datetime": "2026-04-06T06:28:57+00:00",
+    "review_duration": 31
+  },
+  {
+    "card_id": 1795169287472,
+    "rating": 4,
+    "review_datetime": "2026-04-07T11:28:07+00:00",
+    "review_duration": 27
+  },
+  {
+    "card_id": 2066692381848,
+    "rating": 3,
+    "review_datetime": "2026-04-08T02:14:04+00:00",
+    "review_duration": 13
+  },
+  {
+    "card_id": 8478387689394,
+    "rating": 3,
+    "review_datetime": "2026-04-09T05:01:37+00:00",
+    "review_duration": 42
+  },
+  {
+    "card_id": 4730125623965,
+    "rating": 3,
+    "review_datetime": "2026-04-10T02:37:14+00:00",
+    "review_duration": 37
+  },
+  {
+    "card_id": 6670509580791,
+    "rating": 4,
+    "review_datetime": "2026-04-10T19:04:45+00:00",
+    "review_duration": 15
+  },
+  {
+    "card_id": 2066692381848,
+    "rating": 3,
+    "review_datetime": "2026-04-11T20:14:04+00:00",
+    "review_duration": 42
+  },
+  {
+    "card_id": 1633683838605,
+    "rating": 3,
+    "review_datetime": "2026-04-12T20:55:21+00:00",
+    "review_duration": 19
+  },
+  {
+    "card_id": 5611387590360,
+    "rating": 4,
+    "review_datetime": "2026-04-13T21:32:15+00:00",
+    "review_duration": 23
+  },
+  {
+    "card_id": 1242884004126,
+    "rating": 2,
+    "review_datetime": "2026-04-15T03:42:31+00:00",
+    "review_duration": 4
+  },
+  {
+    "card_id": 1633683838605,
+    "rating": 3,
+    "review_datetime": "2026-04-16T01:34:08+00:00",
+    "review_duration": 40
+  },
+  {
+    "card_id": 2066692381848,
+    "rating": 1,
+    "review_datetime": "2026-04-17T10:15:50+00:00",
+    "review_duration": 13
+  },
+  {
+    "card_id": 8478387689394,
+    "rating": 2,
+    "review_datetime": "2026-04-18T10:51:26+00:00",
+    "review_duration": 9
+  },
+  {
+    "card_id": 3122703997579,
+    "rating": 2,
+    "review_datetime": "2026-04-19T01:06:06+00:00",
+    "review_duration": 6
+  },
+  {
+    "card_id": 5611387590360,
+    "rating": 3,
+    "review_datetime": "2026-04-20T08:22:27+00:00",
+    "review_duration": 11
+  },
+  {
+    "card_id": 1943546122522,
+    "rating": 3,
+    "review_datetime": "2026-04-21T08:29:55+00:00",
+    "review_duration": 32
+  },
+  {
+    "card_id": 1961962271882,
+    "rating": 3,
+    "review_datetime": "2026-04-21T20:43:41+00:00",
+    "review_duration": 8
+  },
+  {
+    "card_id": 8047805940798,
+    "rating": 3,
+    "review_datetime": "2026-04-22T22:03:25+00:00",
+    "review_duration": 19
+  },
+  {
+    "card_id": 4730125623965,
+    "rating": 3,
+    "review_datetime": "2026-04-24T05:51:55+00:00",
+    "review_duration": 39
+  },
+  {
+    "card_id": 8047805940798,
+    "rating": 3,
+    "review_datetime": "2026-04-24T22:15:12+00:00",
+    "review_duration": 23
+  },
+  {
+    "card_id": 1242884004126,
+    "rating": 2,
+    "review_datetime": "2026-04-26T01:34:28+00:00",
+    "review_duration": 23
+  },
+  {
+    "card_id": 1633683838605,
+    "rating": 3,
+    "review_datetime": "2026-04-26T23:27:11+00:00",
+    "review_duration": 15
+  },
+  {
+    "card_id": 4835181413465,
+    "rating": 3,
+    "review_datetime": "2026-04-28T03:29:15+00:00",
+    "review_duration": 27
+  },
+  {
+    "card_id": 8478387689394,
+    "rating": 2,
+    "review_datetime": "2026-04-28T21:28:51+00:00",
+    "review_duration": 40
+  },
+  {
+    "card_id": 8856133396834,
+    "rating": 4,
+    "review_datetime": "2026-04-29T22:03:41+00:00",
+    "review_duration": 32
+  },
+  {
+    "card_id": 1633683838605,
+    "rating": 2,
+    "review_datetime": "2026-04-30T19:05:59+00:00",
+    "review_duration": 9
+  },
+  {
+    "card_id": 4730125623965,
+    "rating": 3,
+    "review_datetime": "2026-05-02T02:10:26+00:00",
+    "review_duration": 33
+  },
+  {
+    "card_id": 7419170390756,
+    "rating": 3,
+    "review_datetime": "2026-05-03T10:30:13+00:00",
+    "review_duration": 27
+  },
+  {
+    "card_id": 1242884004126,
+    "rating": 4,
+    "review_datetime": "2026-05-04T07:57:03+00:00",
+    "review_duration": 41
+  },
+  {
+    "card_id": 1943546122522,
+    "rating": 2,
+    "review_datetime": "2026-05-05T00:24:00+00:00",
+    "review_duration": 41
+  },
+  {
+    "card_id": 9623531247468,
+    "rating": 3,
+    "review_datetime": "2026-05-06T07:16:59+00:00",
+    "review_duration": 33
+  },
+  {
+    "card_id": 4854098871500,
+    "rating": 3,
+    "review_datetime": "2026-05-07T09:18:27+00:00",
+    "review_duration": 6
+  },
+  {
+    "card_id": 2066692381848,
+    "rating": 4,
+    "review_datetime": "2026-05-08T10:09:12+00:00",
+    "review_duration": 38
+  },
+  {
+    "card_id": 1633683838605,
+    "rating": 3,
+    "review_datetime": "2026-05-09T04:13:03+00:00",
+    "review_duration": 28
+  },
+  {
+    "card_id": 1943546122522,
+    "rating": 4,
+    "review_datetime": "2026-05-09T20:47:20+00:00",
+    "review_duration": 23
+  },
+  {
+    "card_id": 7419170390756,
+    "rating": 3,
+    "review_datetime": "2026-05-10T20:03:37+00:00",
+    "review_duration": 21
+  },
+  {
+    "card_id": 4835181413465,
+    "rating": 1,
+    "review_datetime": "2026-05-12T10:32:58+00:00",
+    "review_duration": 45
+  },
+  {
+    "card_id": 3519355476273,
+    "rating": 2,
+    "review_datetime": "2026-05-13T11:10:03+00:00",
+    "review_duration": 28
+  },
+  {
+    "card_id": 8478387689394,
+    "rating": 3,
+    "review_datetime": "2026-05-14T11:05:54+00:00",
+    "review_duration": 5
+  },
+  {
+    "card_id": 2066692381848,
+    "rating": 2,
+    "review_datetime": "2026-05-15T00:04:38+00:00",
+    "review_duration": 15
+  },
+  {
+    "card_id": 4730125623965,
+    "rating": 2,
+    "review_datetime": "2026-05-15T21:43:55+00:00",
+    "review_duration": 20
+  },
+  {
+    "card_id": 4835181413465,
+    "rating": 3,
+    "review_datetime": "2026-05-17T02:25:07+00:00",
+    "review_duration": 30
+  },
+  {
+    "card_id": 1795169287472,
+    "rating": 1,
+    "review_datetime": "2026-05-18T02:37:38+00:00",
+    "review_duration": 27
+  },
+  {
+    "card_id": 1633683838605,
+    "rating": 3,
+    "review_datetime": "2026-05-18T20:39:05+00:00",
+    "review_duration": 19
+  },
+  {
+    "card_id": 8478387689394,
+    "rating": 4,
+    "review_datetime": "2026-05-20T08:42:37+00:00",
+    "review_duration": 21
+  },
+  {
+    "card_id": 7419170390756,
+    "rating": 4,
+    "review_datetime": "2026-05-21T11:20:59+00:00",
+    "review_duration": 20
+  },
+  {
+    "card_id": 8478387689394,
+    "rating": 3,
+    "review_datetime": "2026-05-22T03:13:42+00:00",
+    "review_duration": 15
+  },
+  {
+    "card_id": 3519355476273,
+    "rating": 3,
+    "review_datetime": "2026-05-23T05:15:16+00:00",
+    "review_duration": 40
+  },
+  {
+    "card_id": 1795169287472,
+    "rating": 3,
+    "review_datetime": "2026-05-24T07:08:42+00:00",
+    "review_duration": 45
   }
 ]

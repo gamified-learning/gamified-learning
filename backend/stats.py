@@ -14,6 +14,20 @@ def _question_id_from_card_id(card_id: int) -> int | None:
             return question_id
     return None
 
+
+def _weight_for_review(reviewed_at: str, now: datetime.datetime) -> float:
+    if not reviewed_at:
+        return 1.0
+    try:
+        dt = datetime.datetime.fromisoformat(reviewed_at)
+    except ValueError:
+        return 1.0
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=datetime.timezone.utc)
+    age_days = max((now - dt).total_seconds() / 86400.0, 0.0)
+    half_life_days = 14.0
+    return 0.5 ** (age_days / half_life_days)
+
 def heatmap():
     review_log = load_review_log()
     
@@ -28,7 +42,7 @@ def streak():
     freq = heatmap()
     date = datetime.datetime.now().date()
     while freq.get(str(date), 0) > 0:
-        date -= datetime.timedelta(days=1).date()
+        date -= datetime.timedelta(days=1)
 
     return (datetime.datetime.now().date() - date).days
 
@@ -36,10 +50,13 @@ def streak():
 def hard_questions(limit: int = 5) -> list[dict]:
     review_log = load_review_log()
     questions = _question_lookup()
+    now = datetime.datetime.now(datetime.timezone.utc)
     buckets: dict[int, dict] = defaultdict(lambda: {
         "again_count": 0,
         "hard_count": 0,
         "total_reviews": 0,
+        "weighted_hard": 0.0,
+        "weighted_total": 0.0,
         "last_review": None,
     })
 
@@ -53,11 +70,15 @@ def hard_questions(limit: int = 5) -> list[dict]:
 
         bucket = buckets[question_id]
         bucket["total_reviews"] += 1
+        weight = _weight_for_review(entry.get("review_datetime"), now)
+        bucket["weighted_total"] += weight
         rating = entry.get("rating")
         if rating == 1:
             bucket["again_count"] += 1
+            bucket["weighted_hard"] += weight
         elif rating == 2:
             bucket["hard_count"] += 1
+            bucket["weighted_hard"] += weight
 
         reviewed_at = entry.get("review_datetime")
         if reviewed_at and (bucket["last_review"] is None or reviewed_at > bucket["last_review"]):
@@ -80,15 +101,16 @@ def hard_questions(limit: int = 5) -> list[dict]:
             "hard_count": bucket["hard_count"],
             "hard_reviews": hard_reviews,
             "total_reviews": bucket["total_reviews"],
-            "hard_ratio": round(hard_reviews / bucket["total_reviews"], 3),
+            "hard_ratio": round(bucket["weighted_hard"] / max(bucket["weighted_total"], 1e-6), 3),
             "last_review": bucket["last_review"],
+            "hard_score": round(bucket["weighted_hard"], 3),
         })
 
     hard_questions.sort(
         key=lambda item: (
-            item["hard_reviews"],
+            item["hard_score"],
             item["hard_ratio"],
-            item["total_reviews"],
+            item["hard_reviews"],
         ),
         reverse=True,
     )
@@ -96,13 +118,16 @@ def hard_questions(limit: int = 5) -> list[dict]:
     return hard_questions[:limit]
 
 
-def hard_chapters_by_subject(limit_per_subject: int = 5) -> list[dict]:
+def hard_chapters_by_subject(limit_per_subject: int = 5, limit_subjects: int = 5) -> list[dict]:
     review_log = load_review_log()
     questions = _question_lookup()
+    now = datetime.datetime.now(datetime.timezone.utc)
     chapter_buckets: dict[tuple[str, str], dict] = defaultdict(lambda: {
         "again_count": 0,
         "hard_count": 0,
         "total_reviews": 0,
+        "weighted_hard": 0.0,
+        "weighted_total": 0.0,
         "question_ids": set(),
         "last_review": None,
     })
@@ -123,11 +148,16 @@ def hard_chapters_by_subject(limit_per_subject: int = 5) -> list[dict]:
         bucket["question_ids"].add(question_id)
         bucket["total_reviews"] += 1
 
+        weight = _weight_for_review(entry.get("review_datetime"), now)
+        bucket["weighted_total"] += weight
+
         rating = entry.get("rating")
         if rating == 1:
             bucket["again_count"] += 1
+            bucket["weighted_hard"] += weight
         elif rating == 2:
             bucket["hard_count"] += 1
+            bucket["weighted_hard"] += weight
 
         reviewed_at = entry.get("review_datetime")
         if reviewed_at and (bucket["last_review"] is None or reviewed_at > bucket["last_review"]):
@@ -147,17 +177,18 @@ def hard_chapters_by_subject(limit_per_subject: int = 5) -> list[dict]:
             "hard_count": bucket["hard_count"],
             "hard_reviews": hard_reviews,
             "total_reviews": bucket["total_reviews"],
-            "hard_ratio": round(hard_reviews / bucket["total_reviews"], 3),
+            "hard_ratio": round(bucket["weighted_hard"] / max(bucket["weighted_total"], 1e-6), 3),
             "last_review": bucket["last_review"],
+            "hard_score": round(bucket["weighted_hard"], 3),
         })
 
     result = []
     for subject, chapters in grouped.items():
         chapters.sort(
             key=lambda item: (
-                item["hard_reviews"],
+                item["hard_score"],
                 item["hard_ratio"],
-                item["total_reviews"],
+                item["hard_reviews"],
             ),
             reverse=True,
         )
@@ -171,6 +202,6 @@ def hard_chapters_by_subject(limit_per_subject: int = 5) -> list[dict]:
         reverse=True,
     )
 
-    return result
+    return result[:limit_subjects]
     
 

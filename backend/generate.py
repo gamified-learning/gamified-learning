@@ -1,69 +1,50 @@
+import io
 import json
-import base64
 import requests
 from flask import request, jsonify
 
 
-import io
-import tempfile
-import os
-
 def extract_file_text(file) -> str:
     """
-    Extract plain text from an uploaded file using Docling.
+    Extract plain text from an uploaded file.
 
-    Docling natively handles: PDF, DOCX, PPTX, XLSX, HTML, Markdown,
-    plain text, CSV, and more — including scanned PDFs via OCR.
-
-    Falls back to raw UTF-8 decode if Docling is not installed or
-    if the file type is a simple plain-text format.
-
-    Requires: pip install docling
+    Uses pdfminer for PDFs and UTF-8 decoding for plain text files.
     """
     if file is None:
         return ""
 
-    filename = file.filename.lower()
+    filename = getattr(file, "filename", None) or getattr(file, "name", "")
+    filename = filename.lower()
     raw = file.read()
+    # print(raw)
+    if isinstance(raw, str):
+        raw = raw.encode("utf-8", errors="replace")
+    is_pdf = filename.endswith(".pdf") or raw[:5] == b"%PDF-"
 
-    # For simple plain-text formats, skip Docling overhead entirely
+    # For simple plain-text formats, decode directly
     PLAIN_TEXT_EXTENSIONS = (".txt", ".md", ".csv", ".json", ".xml", ".yaml", ".yml")
     if filename.endswith(PLAIN_TEXT_EXTENSIONS):
         return raw.decode("utf-8", errors="replace").strip()
 
-    # Use Docling for everything else (PDF, DOCX, PPTX, XLSX, HTML, …)
+    if is_pdf:
+        return _extract_pdf_text_pdfminer(raw)
+
+    # Fallback: best-effort UTF-8 decode for other file types
+    return raw.decode("utf-8", errors="replace").strip()
+
+def _extract_pdf_text_pdfminer(raw: bytes) -> str:
     try:
-        from docling.document_converter import DocumentConverter
-
-        # Docling works from file paths, so write to a named temp file
-        suffix = os.path.splitext(filename)[1] or ".bin"
-        with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as tmp:
-            tmp.write(raw)
-            tmp_path = tmp.name
-
-        try:
-            converter = DocumentConverter()
-            result = converter.convert(tmp_path)
-            # Export as Markdown — preserves headings, tables, lists cleanly
-            return result.document.export_to_markdown().strip()
-        finally:
-            os.unlink(tmp_path)   # always clean up
-
+        from pdfminer.high_level import extract_text
     except ImportError:
-        # Docling not installed — fall back to plain UTF-8 decode
-        try:
-            return raw.decode("utf-8", errors="replace").strip()
-        except Exception:
-            return ""
+        return ""
 
-    except Exception as e:
-        # Docling failed (unsupported format, corrupt file, etc.)
-        # Log and fall back gracefully
-        print(f"[extract_file_text] Docling error for '{filename}': {e}")
-        try:
-            return raw.decode("utf-8", errors="replace").strip()
-        except Exception:
-            return ""
+    try:
+        with io.BytesIO(raw) as bio:
+            text = extract_text(bio)
+    except Exception:
+        return ""
+
+    return text.strip() if text else ""
 
 
 
@@ -83,7 +64,7 @@ def build_prompt(text: str, file_text: str, subject: str = "", chapter: str = ""
 
     return (
         "You are an expert quiz generator. "
-        "Based on the content below, generate 5 distinct questions that test understanding of the key concepts. "
+        "Based on the content below, generate as many distinct questions as you think are needed to test understanding of the key concepts. "
         "Use the subject and chapter as the organizational context for the questions. "
         "Return ONLY a valid JSON array where each element is an object with keys: "
         '"question" (string), "answer" (the correct short answer string), '
@@ -193,5 +174,6 @@ def generate_questions_openrouter(
 
 
 if __name__ == "__main__":
-    with open("file") as f:
-        print(extract_file_text(f))
+    with open("test/file.pdf", "rb") as f:
+        output = extract_file_text(f)
+        print(output)

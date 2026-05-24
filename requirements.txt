@@ -2,4 +2,4 @@ fsrs
 flask
 flask-cors
 requests
-docling
+pdfminer.six
