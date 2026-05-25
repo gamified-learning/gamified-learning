@@ -1120,5 +1120,19 @@
     "rating": 3,
     "review_datetime": "2026-05-24T07:08:42+00:00",
     "review_duration": 45
+  },
+  {
+    "card_id": 9623531247468,
+    "rating": 2,
+    "review_datetime": "2026-05-25T05:38:33.929338+00:00",
+    "review_duration": null,
+    "question_id": 2
+  },
+  {
+    "card_id": 6670509580791,
+    "rating": 4,
+    "review_datetime": "2026-05-25T05:38:51.414493+00:00",
+    "review_duration": null,
+    "question_id": 3
   }
 ]

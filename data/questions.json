@@ -55,7 +55,7 @@
     "subject": "Distributed Systems",
     "chapter": "Consistency"
   },
-    {
+  {
     "id": 9,
     "front": "What is the role of a lexer in a compiler?",
     "back": "Convert a stream of characters into tokens.",
@@ -166,5 +166,397 @@
     "back": "Overlapping instruction stages to increase throughput.",
     "subject": "Computer Architecture",
     "chapter": "Pipelining"
+  },
+  {
+    "id": 25,
+    "front": "What is the definition of a queue in data structures?",
+    "back": "An ordered group of items where new elements are added at the rear and removed from the front (FIFO).",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 26,
+    "front": "Which end of a queue is used for enqueue operations?",
+    "back": "Rear",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 27,
+    "front": "Which end of a queue is used for dequeue operations?",
+    "back": "Front",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 28,
+    "front": "What does FIFO stand for in the context of a queue?",
+    "back": "First In, First Out",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 29,
+    "front": "Name two basic operations that can be performed on a queue.",
+    "back": "Enqueue and Dequeue",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 30,
+    "front": "Which OS component commonly uses queues?",
+    "back": "CPU scheduling algorithms",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 31,
+    "front": "List one application of queues outside of operating systems.",
+    "back": "Josephus problem",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 32,
+    "front": "What is the difference between a linear queue and a circular queue?",
+    "back": "A linear queue cannot reuse freed space at the front after deletions, while a circular queue wraps around to use that space.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 33,
+    "front": "In a static array implementation of a queue, what condition indicates the queue is full?",
+    "back": "rear == max - 1 (in a linear queue) or front == (rear + 1) % max (in a circular queue).",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 34,
+    "front": "In a static array implementation of a queue, what condition indicates the queue is empty?",
+    "back": "front == -1",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 35,
+    "front": "What is the time complexity of the enqueue operation in an array\u2011based queue?",
+    "back": "O(1)",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 36,
+    "front": "What is the time complexity of the dequeue operation in an array\u2011based queue?",
+    "back": "O(1)",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 37,
+    "front": "Which data structure can be used to implement a queue besides arrays?",
+    "back": "Linked list",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 38,
+    "front": "In a linked\u2011list queue, which pointer is updated when a new node is enqueued?",
+    "back": "rear pointer",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 39,
+    "front": "In a linked\u2011list queue, which pointer is updated when a node is dequeued?",
+    "back": "front pointer",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 40,
+    "front": "What is a double\u2011ended queue also known as?",
+    "back": "Deque",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 41,
+    "front": "Which operations are allowed at both ends of a deque?",
+    "back": "Insertion and deletion at both front and rear",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 42,
+    "front": "What is an input\u2011restricted deque?",
+    "back": "A deque that allows insertion at only one end but deletion at both ends.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 43,
+    "front": "What is an output\u2011restricted deque?",
+    "back": "A deque that allows deletion at only one end but insertion at both ends.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 44,
+    "front": "What is the main difference between a priority queue and a regular queue?",
+    "back": "Elements are removed based on priority rather than insertion order.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 45,
+    "front": "In a priority queue, how are elements with the same priority ordered when removed?",
+    "back": "In the order they were inserted (FIFO among same priority).",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 46,
+    "front": "Which CPU scheduling algorithm uses a queue with a fixed time quantum?",
+    "back": "Round Robin",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 47,
+    "front": "In Round Robin scheduling, what happens to a process that has not finished after its time quantum?",
+    "back": "It is removed from the front and re\u2011enqueued at the rear.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 48,
+    "front": "What is the main disadvantage of a linear queue?",
+    "back": "It cannot reuse freed space at the front after deletions.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 49,
+    "front": "How does a circular queue overcome the drawback of a linear queue?",
+    "back": "By wrapping the rear pointer back to the front of the array when space is available.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 50,
+    "front": "What is the purpose of the \u2018front\u2019 variable in a queue implementation?",
+    "back": "It indicates the position of the next element to be dequeued.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 51,
+    "front": "What is the purpose of the \u2018rear\u2019 variable in a queue implementation?",
+    "back": "It indicates the position where the next element will be enqueued.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 52,
+    "front": "In a circular queue, how do you calculate the next position of rear?",
+    "back": "rear = (rear + 1) % max",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 53,
+    "front": "In a circular queue, how do you calculate the next position of front?",
+    "back": "front = (front + 1) % max",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 54,
+    "front": "What condition indicates that a circular queue is empty?",
+    "back": "front == -1",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 55,
+    "front": "What condition indicates that a circular queue is full?",
+    "back": "front == (rear + 1) % max",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 56,
+    "front": "What is the Josephus problem?",
+    "back": "A counting\u2011out game where people are eliminated in a circle until one remains.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 57,
+    "front": "In the Josephus problem, what is the typical task to solve?",
+    "back": "Determine the position to stand in the initial circle to survive.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 58,
+    "front": "Which of the following is NOT a typical application of queues?",
+    "back": "Data encryption",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 59,
+    "front": "Which queue type is used to implement a bank teller line in queue simulation?",
+    "back": "Linear queue",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 60,
+    "front": "What is the key advantage of using a dynamic queue over a static queue?",
+    "back": "It can grow as needed, avoiding overflow with a fixed size.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 61,
+    "front": "Which operation in a queue returns the element at the front without removing it?",
+    "back": "Peek or front (depends on implementation)",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 62,
+    "front": "In a queue ADT, what does the isEmpty operation return when the queue is empty?",
+    "back": "True (or 1)",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 63,
+    "front": "In a queue ADT, what does the isFull operation return when the queue is full?",
+    "back": "True (or 1)",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 64,
+    "front": "What does the term 'underflow' refer to in queue operations?",
+    "back": "Attempting to dequeue from an empty queue.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 65,
+    "front": "What does the term 'overflow' refer to in queue operations?",
+    "back": "Attempting to enqueue into a full queue.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 66,
+    "front": "Which data structure is commonly used to implement a priority queue?",
+    "back": "Heap (binary heap, etc.)",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 67,
+    "front": "In a circular queue, what happens when rear reaches the last index and there is free space at the front?",
+    "back": "rear wraps around to index 0.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 68,
+    "front": "Which queue type would you use if you need to add and remove elements from both ends?",
+    "back": "Deque (double\u2011ended queue).",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 69,
+    "front": "What is the output of the following deque operations: InsertFront(10); InsertFront(20); InsertRear(30); DeleteFront(); InsertRear(40); InsertFront(10); DeleteRear(); InsertFront(15);?",
+    "back": "10 30 10 15",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 70,
+    "front": "Which queue operation is used to add an element to the rear in a standard queue?",
+    "back": "Enqueue",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 71,
+    "front": "Which queue operation is used to remove an element from the front in a standard queue?",
+    "back": "Dequeue",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 72,
+    "front": "In a queue implemented with a singly linked list, what is the time complexity of the enqueue operation?",
+    "back": "O(1)",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 73,
+    "front": "In a queue implemented with a singly linked list, what is the time complexity of the dequeue operation?",
+    "back": "O(1)",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 74,
+    "front": "What is the typical value of rear in an empty array\u2011based queue?",
+    "back": "-1",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 75,
+    "front": "What is the typical value of front in an empty array\u2011based queue?",
+    "back": "-1",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 76,
+    "front": "What does the 'cnt' variable represent in the circular queue implementation with a count?",
+    "back": "The number of elements currently in the queue.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 77,
+    "front": "In the context of queues, what does 'FIFO' ensure about element processing?",
+    "back": "Elements are processed in the exact order they were inserted.",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 78,
+    "front": "Which queue type is used to simulate waiting lines in a bank or a supermarket?",
+    "back": "Linear queue",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 79,
+    "front": "Which queue type is used to model the ready queue in Round Robin scheduling?",
+    "back": "Circular queue",
+    "subject": "ads",
+    "chapter": "queue"
+  },
+  {
+    "id": 80,
+    "front": "In a priority queue, which element is removed first if higher priorities are processed first?",
+    "back": "The element with the highest priority.",
+    "subject": "ads",
+    "chapter": "queue"
   }
 ]
